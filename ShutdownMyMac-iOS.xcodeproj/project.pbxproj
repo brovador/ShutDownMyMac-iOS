@@ -14,6 +14,7 @@
 		1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EE1AA32CD700BF3D63 /* Images.xcassets */; };
 		1CC766F21AA32CD700BF3D63 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */; };
 		1CC766FE1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766FD1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m */; };
+		1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		1CC766F71AA32CD700BF3D63 /* ShutdownMyMac-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShutdownMyMac-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC766FC1AA32CD700BF3D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC766FD1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShutdownMyMac_iOSTests.m; sourceTree = "<group>"; };
+		1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMMClientServiceManager.h; sourceTree = "<group>"; };
+		1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMMClientServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				1CC766EE1AA32CD700BF3D63 /* Images.xcassets */,
 				1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */,
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
+				1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */,
+				1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */,
 			);
 			path = "ShutdownMyMac-iOS";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC766EA1AA32CD700BF3D63 /* ViewController.m in Sources */,
+				1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */,
 				1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */,
 				1CC766E41AA32CD700BF3D63 /* main.m in Sources */,
 			);
@@ -346,6 +352,7 @@
 				INFOPLIST_FILE = "ShutdownMyMac-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9d2c0253-53d0-4a74-9ac8-423ecd672b77";
 			};
 			name = Debug;
 		};
@@ -356,6 +363,7 @@
 				INFOPLIST_FILE = "ShutdownMyMac-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9d2c0253-53d0-4a74-9ac8-423ecd672b77";
 			};
 			name = Release;
 		};
