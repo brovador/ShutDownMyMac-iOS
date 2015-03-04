@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4502091AA3994300EE21B2 /* SMShutdownService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4502081AA3994300EE21B2 /* SMShutdownService.m */; };
+		1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */; };
 		1CC766E41AA32CD700BF3D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E31AA32CD700BF3D63 /* main.m */; };
 		1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E61AA32CD700BF3D63 /* AppDelegate.m */; };
-		1CC766EA1AA32CD700BF3D63 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E91AA32CD700BF3D63 /* ViewController.m */; };
+		1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */; };
 		1CC766ED1AA32CD700BF3D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EB1AA32CD700BF3D63 /* Main.storyboard */; };
 		1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EE1AA32CD700BF3D63 /* Images.xcassets */; };
 		1CC766F21AA32CD700BF3D63 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */; };
@@ -28,13 +30,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4502071AA3994300EE21B2 /* SMShutdownService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMShutdownService.h; sourceTree = "<group>"; };
+		1C4502081AA3994300EE21B2 /* SMShutdownService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMShutdownService.m; sourceTree = "<group>"; };
+		1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMCServiceViewController.h; sourceTree = "<group>"; };
+		1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMCServiceViewController.m; sourceTree = "<group>"; };
 		1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShutdownMyMac-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC766E21AA32CD700BF3D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC766E31AA32CD700BF3D63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CC766E51AA32CD700BF3D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CC766E61AA32CD700BF3D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CC766E81AA32CD700BF3D63 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1CC766E91AA32CD700BF3D63 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCServicesViewController.h; sourceTree = "<group>"; };
+		1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMMCServicesViewController.m; sourceTree = "<group>"; };
 		1CC766EC1AA32CD700BF3D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CC766EE1AA32CD700BF3D63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CC766F11AA32CD700BF3D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,14 +92,18 @@
 			children = (
 				1CC766E51AA32CD700BF3D63 /* AppDelegate.h */,
 				1CC766E61AA32CD700BF3D63 /* AppDelegate.m */,
-				1CC766E81AA32CD700BF3D63 /* ViewController.h */,
-				1CC766E91AA32CD700BF3D63 /* ViewController.m */,
+				1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */,
+				1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */,
+				1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */,
+				1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */,
 				1CC766EB1AA32CD700BF3D63 /* Main.storyboard */,
 				1CC766EE1AA32CD700BF3D63 /* Images.xcassets */,
 				1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */,
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
 				1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */,
 				1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */,
+				1C4502071AA3994300EE21B2 /* SMShutdownService.h */,
+				1C4502081AA3994300EE21B2 /* SMShutdownService.m */,
 			);
 			path = "ShutdownMyMac-iOS";
 			sourceTree = "<group>";
@@ -224,8 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CC766EA1AA32CD700BF3D63 /* ViewController.m in Sources */,
+				1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */,
+				1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */,
 				1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */,
+				1C4502091AA3994300EE21B2 /* SMShutdownService.m in Sources */,
 				1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */,
 				1CC766E41AA32CD700BF3D63 /* main.m in Sources */,
 			);
@@ -420,6 +432,7 @@
 				1CC767031AA32CD700BF3D63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CC767041AA32CD700BF3D63 /* Build configuration list for PBXNativeTarget "ShutdownMyMac-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +441,7 @@
 				1CC767061AA32CD700BF3D63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

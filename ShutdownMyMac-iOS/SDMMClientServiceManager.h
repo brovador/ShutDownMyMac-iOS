@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SMMClientServiceManagerDelegate;
+
 @interface SDMMClientServiceManager : NSObject
+
+@property (nonatomic, assign) NSObject<SMMClientServiceManagerDelegate> *delegate;
 
 + (instancetype)sharedServiceManager;
 
 - (void)searchServices;
+- (void)stopSearch;
+
+@end
+
+@protocol SMMClientServiceManagerDelegate <NSObject>
+
+- (void)clientServiceManagerDidFindServices:(NSArray*)shutdownServices;
 
 @end
