@@ -55,7 +55,7 @@
                                     <navigationItem id="wOf-kL-vje">
                                         <barButtonItem key="rightBarButtonItem" title="Close" id="rP8-cH-czQ">
                                             <connections>
-                                                <action selector="onBackButtonPressed:" destination="pi6-Qh-CWv" id="etW-3z-3Tg"/>
+                                                <action selector="backAction:" destination="pi6-Qh-CWv" id="s1N-6Q-fSv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -65,15 +65,36 @@
                                 <rect key="frame" x="16" y="155" width="288" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Check"/>
+                                <connections>
+                                    <action selector="checkAction:" destination="pi6-Qh-CWv" eventType="touchUpInside" id="lUl-yS-iXD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cds-7u-Yc5">
+                                <rect key="frame" x="16" y="210" width="288" height="47"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Pair"/>
+                                <connections>
+                                    <action selector="pairAction:" destination="pi6-Qh-CWv" eventType="touchUpInside" id="qaq-eb-QGb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nbr-bW-IRS">
+                                <rect key="frame" x="16" y="265" width="288" height="47"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Shutdown"/>
                                 <connections>
-                                    <action selector="onShutdownButtonPressed:" destination="pi6-Qh-CWv" eventType="touchUpInside" id="Ojf-WO-QMx"/>
+                                    <action selector="shutdownAction:" destination="pi6-Qh-CWv" eventType="touchUpInside" id="3cl-ff-cKK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnConnect" destination="PXp-ea-MVb" id="ewY-TN-f6h"/>
+                        <outlet property="btnPair" destination="Cds-7u-Yc5" id="hjC-pT-Qzq"/>
+                        <outlet property="btnShutdown" destination="nbr-bW-IRS" id="zNj-GG-ca2"/>
                         <outlet property="lbServiceName" destination="h9L-wH-KTR" id="t2W-Yh-mZE"/>
                         <segue destination="XL6-sg-4bm" kind="unwind" identifier="unwindToServicesSegue" unwindAction="unwindToServices:" id="Nmq-AW-qqa"/>
                     </connections>

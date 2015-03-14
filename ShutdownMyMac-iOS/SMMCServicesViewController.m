@@ -8,7 +8,6 @@
 
 #import "SMMCServicesViewController.h"
 #import "SDMMClientServiceManager.h"
-#import "SMShutdownService.h"
 #import "SMMCServiceViewController.h"
 
 static NSString * const ShowServiceSegueIdentifier = @"showService";
@@ -70,8 +69,7 @@ static NSString * const ShowServiceSegueIdentifier = @"showService";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SMShutdownService *service = [_services objectAtIndex:indexPath.row];
-    
+    NSNetService *service = [_services objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     cell.textLabel.text = service.name;
     

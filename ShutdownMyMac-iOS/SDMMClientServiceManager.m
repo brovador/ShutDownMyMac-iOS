@@ -7,7 +7,6 @@
 //
 
 #import "SDMMClientServiceManager.h"
-#import "SMShutdownService.h"
 
 static SDMMClientServiceManager *_sharedServiceManager;
 
@@ -48,9 +47,7 @@ static SDMMClientServiceManager *_sharedServiceManager;
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-    SMShutdownService *shutdownService = [SMShutdownService new];
-    shutdownService.netService = aNetService;
-    [self.foundServices addObject:shutdownService];
+    [self.foundServices addObject:aNetService];
     
     if (!moreComing) {
         [_delegate clientServiceManagerDidFindServices:self.foundServices];
