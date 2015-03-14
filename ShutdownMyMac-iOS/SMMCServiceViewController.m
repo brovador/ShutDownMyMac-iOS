@@ -11,11 +11,9 @@
 
 typedef NS_ENUM(NSInteger, SDMMServiceManagerStatus) {
     SDMMServiceManagerStatusNotConnected,
-    SDMMServiceManagerStatusNeedsPair,
     SDMMServiceManagerStatusConnected
 };
 
-static NSString *const SDMMServiceManagerCommandConnect = @"CONNECT";
 static NSString *const SDMMServiceManagerCommandPair = @"PAIR";
 static NSString *const SDMMServiceManagerCommandShutdown = @"SHUTDOWN";
 
@@ -76,6 +74,8 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 {
     [super viewDidLoad];
     [self _updateView];
+    
+    [_channel sendCommand:SDMMServiceManagerCommandPair];
 }
 
 
@@ -92,18 +92,6 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 }
 
 
-- (IBAction)checkAction:(id)sender
-{
-    [_channel sendCommand:SDMMServiceManagerCommandConnect];
-}
-
-
-- (IBAction)pairAction:(id)sender
-{
-    [_channel sendCommand:SDMMServiceManagerCommandPair];
-}
-
-
 - (IBAction)shutdownAction:(id)sender
 {
     [_channel sendCommand:SDMMServiceManagerCommandShutdown];
@@ -115,7 +103,6 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 {
     [_lbServiceName setText:_service.name];
     [_btnConnect setEnabled:(_serviceStatus == SDMMServiceManagerStatusNotConnected)];
-    [_btnPair setEnabled:(_serviceStatus == SDMMServiceManagerStatusNeedsPair)];
     [_btnShutdown setEnabled:(_serviceStatus == SDMMServiceManagerStatusConnected)];
 }
 
@@ -132,14 +119,9 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
                 if ([command isEqualToString:SDMMServiceManagerResponseSuccess]) {
                     self.serviceStatus = SDMMServiceManagerStatusConnected;
                 } else if ([command isEqualToString:SDMMServiceManagerResponseFail]) {
-                    self.serviceStatus = SDMMServiceManagerStatusNeedsPair;
+                    [self backAction:nil];
                 }
-                
                 break;
-            case SDMMServiceManagerStatusNeedsPair:
-                if ([command isEqualToString:SDMMServiceManagerResponseSuccess]) {
-                    self.serviceStatus = SDMMServiceManagerStatusConnected;
-                }
             default:
                 break;
         }
