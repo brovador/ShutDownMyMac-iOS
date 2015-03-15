@@ -41,6 +41,14 @@ static NSString * const ShowServiceSegueIdentifier = @"showService";
     [[SDMMClientServiceManager sharedServiceManager] stopSearch];
 }
 
+#pragma mark IBActions
+
+- (IBAction)refreshAction:(id)sender
+{
+    [[SDMMClientServiceManager sharedServiceManager] stopSearch];
+    [[SDMMClientServiceManager sharedServiceManager] searchServices];
+}
+
 #pragma mark UIStoryboardSegues
 
 - (IBAction)unwindToServices:(UIStoryboardSegue*)sender

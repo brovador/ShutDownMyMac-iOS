@@ -75,7 +75,9 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
     [super viewDidLoad];
     [self _updateView];
     
-    [_channel sendCommand:SDMMServiceManagerCommandPair];
+    NSString *deviceName = [[UIDevice currentDevice] name];
+    NSString *command = [NSString stringWithFormat:@"%@:%@", SDMMServiceManagerCommandPair, deviceName];
+    [_channel sendCommand:command];
 }
 
 
