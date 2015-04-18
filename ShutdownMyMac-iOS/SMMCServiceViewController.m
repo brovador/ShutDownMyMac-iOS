@@ -11,7 +11,8 @@
 
 typedef NS_ENUM(NSInteger, SDMMServiceManagerStatus) {
     SDMMServiceManagerStatusNotConnected,
-    SDMMServiceManagerStatusConnected
+    SDMMServiceManagerStatusConnected,
+    SDMMServiceManagerStatusShutdownCommandSent
 };
 
 static NSString *const SDMMServiceManagerCommandPair = @"PAIR";
@@ -96,10 +97,17 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 
 - (IBAction)shutdownAction:(id)sender
 {
+    self.serviceStatus = SDMMServiceManagerStatusShutdownCommandSent;
     [_channel sendCommand:SDMMServiceManagerCommandShutdown];
 }
 
 #pragma mark Private
+
+- (void)_showErrorAlert
+{
+#warning TODO: show error alert
+}
+
 
 - (void)_updateView
 {
@@ -124,6 +132,13 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
                     [self backAction:nil];
                 }
                 break;
+            case SDMMServiceManagerStatusShutdownCommandSent:
+                if ([command isEqualToString:SDMMServiceManagerResponseSuccess]) {
+                    [self backAction:nil];
+                } else {
+                    self.serviceStatus = SDMMServiceManagerStatusConnected;
+                    [self _showErrorAlert];
+                }
             default:
                 break;
         }
