@@ -14,20 +14,8 @@
 		1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */; };
 		1CC766ED1AA32CD700BF3D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EB1AA32CD700BF3D63 /* Main.storyboard */; };
 		1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EE1AA32CD700BF3D63 /* Images.xcassets */; };
-		1CC766F21AA32CD700BF3D63 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */; };
-		1CC766FE1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766FD1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m */; };
 		1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1CC766F81AA32CD700BF3D63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1CC766D61AA32CD700BF3D63 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1CC766DD1AA32CD700BF3D63;
-			remoteInfo = "ShutdownMyMac-iOS";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMCServiceViewController.h; sourceTree = "<group>"; };
@@ -43,23 +31,12 @@
 		1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMMCServicesViewController.m; sourceTree = "<group>"; };
 		1CC766EC1AA32CD700BF3D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CC766EE1AA32CD700BF3D63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1CC766F11AA32CD700BF3D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1CC766F71AA32CD700BF3D63 /* ShutdownMyMac-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShutdownMyMac-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CC766FC1AA32CD700BF3D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CC766FD1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShutdownMyMac_iOSTests.m; sourceTree = "<group>"; };
 		1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMMClientServiceManager.h; sourceTree = "<group>"; };
 		1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMMClientServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1CC766DB1AA32CD700BF3D63 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1CC766F41AA32CD700BF3D63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,7 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				1CC766E01AA32CD700BF3D63 /* ShutdownMyMac-iOS */,
-				1CC766FA1AA32CD700BF3D63 /* ShutdownMyMac-iOSTests */,
 				1CC766DF1AA32CD700BF3D63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */,
-				1CC766F71AA32CD700BF3D63 /* ShutdownMyMac-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,7 +75,6 @@
 				1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */,
 				1CC766EB1AA32CD700BF3D63 /* Main.storyboard */,
 				1CC766EE1AA32CD700BF3D63 /* Images.xcassets */,
-				1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */,
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
 				1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */,
 				1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */,
@@ -113,23 +87,6 @@
 			children = (
 				1CC766E21AA32CD700BF3D63 /* Info.plist */,
 				1CC766E31AA32CD700BF3D63 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1CC766FA1AA32CD700BF3D63 /* ShutdownMyMac-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				1CC766FD1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m */,
-				1CC766FB1AA32CD700BF3D63 /* Supporting Files */,
-			);
-			path = "ShutdownMyMac-iOSTests";
-			sourceTree = "<group>";
-		};
-		1CC766FB1AA32CD700BF3D63 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1CC766FC1AA32CD700BF3D63 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,24 +111,6 @@
 			productReference = 1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1CC766F61AA32CD700BF3D63 /* ShutdownMyMac-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1CC767041AA32CD700BF3D63 /* Build configuration list for PBXNativeTarget "ShutdownMyMac-iOSTests" */;
-			buildPhases = (
-				1CC766F31AA32CD700BF3D63 /* Sources */,
-				1CC766F41AA32CD700BF3D63 /* Frameworks */,
-				1CC766F51AA32CD700BF3D63 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1CC766F91AA32CD700BF3D63 /* PBXTargetDependency */,
-			);
-			name = "ShutdownMyMac-iOSTests";
-			productName = "ShutdownMyMac-iOSTests";
-			productReference = 1CC766F71AA32CD700BF3D63 /* ShutdownMyMac-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,10 +122,6 @@
 				TargetAttributes = {
 					1CC766DD1AA32CD700BF3D63 = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					1CC766F61AA32CD700BF3D63 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 1CC766DD1AA32CD700BF3D63;
 					};
 				};
 			};
@@ -204,7 +139,6 @@
 			projectRoot = "";
 			targets = (
 				1CC766DD1AA32CD700BF3D63 /* ShutdownMyMac-iOS */,
-				1CC766F61AA32CD700BF3D63 /* ShutdownMyMac-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,15 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CC766ED1AA32CD700BF3D63 /* Main.storyboard in Resources */,
-				1CC766F21AA32CD700BF3D63 /* LaunchScreen.xib in Resources */,
 				1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1CC766F51AA32CD700BF3D63 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,23 +169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1CC766F31AA32CD700BF3D63 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1CC766FE1AA32CD700BF3D63 /* ShutdownMyMac_iOSTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1CC766F91AA32CD700BF3D63 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1CC766DD1AA32CD700BF3D63 /* ShutdownMyMac-iOS */;
-			targetProxy = 1CC766F81AA32CD700BF3D63 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1CC766EB1AA32CD700BF3D63 /* Main.storyboard */ = {
@@ -268,14 +178,6 @@
 				1CC766EC1AA32CD700BF3D63 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1CC766F01AA32CD700BF3D63 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CC766F11AA32CD700BF3D63 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,40 +281,6 @@
 			};
 			name = Release;
 		};
-		1CC767051AA32CD700BF3D63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ShutdownMyMac-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShutdownMyMac-iOS.app/ShutdownMyMac-iOS";
-			};
-			name = Debug;
-		};
-		1CC767061AA32CD700BF3D63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ShutdownMyMac-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShutdownMyMac-iOS.app/ShutdownMyMac-iOS";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -430,15 +298,6 @@
 			buildConfigurations = (
 				1CC767021AA32CD700BF3D63 /* Debug */,
 				1CC767031AA32CD700BF3D63 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1CC767041AA32CD700BF3D63 /* Build configuration list for PBXNativeTarget "ShutdownMyMac-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1CC767051AA32CD700BF3D63 /* Debug */,
-				1CC767061AA32CD700BF3D63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
