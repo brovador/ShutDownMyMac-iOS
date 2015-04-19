@@ -105,7 +105,12 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 
 - (void)_showErrorAlert
 {
-#warning TODO: show error alert
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"There was an error sending the command"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Close"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 
