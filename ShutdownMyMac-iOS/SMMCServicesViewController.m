@@ -56,13 +56,6 @@ static inline UIColor* PurpleColor()
     [[SDMMClientServiceManager sharedServiceManager] stopSearch];
 }
 
-#pragma mark IBActions
-
-- (IBAction)refreshAction:(id)sender
-{
-    [[SDMMClientServiceManager sharedServiceManager] stopSearch];
-    [[SDMMClientServiceManager sharedServiceManager] searchServices];
-}
 
 #pragma mark UIStoryboardSegues
 
@@ -113,8 +106,9 @@ static inline UIColor* PurpleColor()
 #pragma mark UIRefreshControl
 
 - (void)handleRefresh
-{
-    [self refreshAction:nil];
+{    
+    [[SDMMClientServiceManager sharedServiceManager] stopSearch];
+    [[SDMMClientServiceManager sharedServiceManager] searchServices];
 }
 
 
