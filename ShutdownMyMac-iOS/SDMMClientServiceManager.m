@@ -58,7 +58,7 @@ static SDMMClientServiceManager *_sharedServiceManager;
 
 - (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
-    NSLog(@"DID STOP SEARCH");
+    
 }
 
 @end

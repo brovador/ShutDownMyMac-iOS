@@ -27,7 +27,8 @@ static inline UIColor* PurpleColor()
 
 @implementation SMMCServicesViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [_tblServices registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellIdentifier"];
     [[SDMMClientServiceManager sharedServiceManager] setDelegate:self];
@@ -106,7 +107,7 @@ static inline UIColor* PurpleColor()
 #pragma mark UIRefreshControl
 
 - (void)handleRefresh
-{    
+{
     [[SDMMClientServiceManager sharedServiceManager] stopSearch];
     [[SDMMClientServiceManager sharedServiceManager] searchServices];
 }
