@@ -10,6 +10,7 @@
 		1C192F241AE2C2BC004446BB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C192F231AE2C2BC004446BB /* Icon.png */; };
 		1C192F261AE2C563004446BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C192F251AE2C563004446BB /* Default-568h@2x.png */; };
 		1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */; };
+		1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */; };
 		1CB225361AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB225351AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m */; };
 		1CC766E41AA32CD700BF3D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E31AA32CD700BF3D63 /* main.m */; };
 		1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E61AA32CD700BF3D63 /* AppDelegate.m */; };
@@ -24,6 +25,8 @@
 		1C192F251AE2C563004446BB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMCServiceViewController.h; sourceTree = "<group>"; };
 		1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMCServiceViewController.m; sourceTree = "<group>"; };
+		1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Orientations.h"; sourceTree = "<group>"; };
+		1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Orientations.m"; sourceTree = "<group>"; };
 		1CB225341AB439FE00E5BC5B /* SDMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMMBonjourHelperChannel.h; sourceTree = "<group>"; };
 		1CB225351AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMMBonjourHelperChannel.m; sourceTree = "<group>"; };
 		1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShutdownMyMac-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +95,8 @@
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
 				1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */,
 				1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */,
+				1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */,
+				1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */,
 			);
 			path = "ShutdownMyMac-iOS";
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */,
+				1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */,
 				1CB225361AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m in Sources */,
 				1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */,
 				1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */,

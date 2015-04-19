@@ -57,7 +57,6 @@ static inline UIColor* PurpleColor()
     [[SDMMClientServiceManager sharedServiceManager] stopSearch];
 }
 
-
 #pragma mark UIStoryboardSegues
 
 - (IBAction)unwindToServices:(UIStoryboardSegue*)sender
