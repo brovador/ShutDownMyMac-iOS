@@ -11,9 +11,14 @@
 #import "SMMCServiceViewController.h"
 
 static NSString * const ShowServiceSegueIdentifier = @"showService";
+static inline UIColor* PurpleColor()
+{
+    return [UIColor colorWithRed:172/255.0f green:30/255.0f blue:247/255.0f alpha:1.0f];
+}
 
 @interface SMMCServicesViewController ()<UITableViewDataSource, UITableViewDelegate, SMMClientServiceManagerDelegate>
 
+@property (nonatomic, assign) UITableViewController *vcTableView;
 @property (nonatomic, assign) IBOutlet UITableView *tblServices;
 
 @property (nonatomic, strong) NSArray *services;
@@ -26,6 +31,16 @@ static NSString * const ShowServiceSegueIdentifier = @"showService";
     [super viewDidLoad];
     [_tblServices registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellIdentifier"];
     [[SDMMClientServiceManager sharedServiceManager] setDelegate:self];
+    
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    refreshControl.tintColor = PurpleColor();
+    [refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    
+    UITableViewController *vcTableView = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    vcTableView.tableView = _tblServices;
+    vcTableView.refreshControl = refreshControl;
+    [self addChildViewController:vcTableView];
+    self.vcTableView = vcTableView;
 }
 
 
@@ -80,6 +95,8 @@ static NSString * const ShowServiceSegueIdentifier = @"showService";
     NSNetService *service = [_services objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     cell.textLabel.text = service.name;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = PurpleColor();
     
     return cell;
 }
@@ -93,12 +110,21 @@ static NSString * const ShowServiceSegueIdentifier = @"showService";
 }
 
 
+#pragma mark UIRefreshControl
+
+- (void)handleRefresh
+{
+    [self refreshAction:nil];
+}
+
+
 #pragma mark SMMClientServiceMAnagerDelegate
 
 - (void)clientServiceManagerDidFindServices:(NSArray *)shutdownServices
 {
     self.services = shutdownServices;
     [_tblServices reloadData];
+    [_vcTableView.refreshControl endRefreshing];
 }
 
 @end
