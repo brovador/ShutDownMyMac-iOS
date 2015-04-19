@@ -7,7 +7,7 @@
 //
 
 #import "SMMCServiceViewController.h"
-#import "SDMMBonjourHelperChannel.h"
+#import "SMMBonjourHelperChannel.h"
 
 typedef NS_ENUM(NSInteger, SDMMServiceManagerStatus) {
     SDMMServiceManagerStatusNotConnected,
@@ -25,7 +25,7 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 @interface SMMCServiceViewController ()
 
 @property (nonatomic, assign) SDMMServiceManagerStatus serviceStatus;
-@property (nonatomic, strong) SDMMBonjourHelperChannel *channel;
+@property (nonatomic, strong) SMMBonjourHelperChannel *channel;
 
 @property (nonatomic, assign) IBOutlet UILabel *lbServiceName;
 @property (nonatomic, assign) IBOutlet UIButton *btnConnect;
@@ -52,7 +52,7 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
                                                    object:nil];
         
         self.serviceStatus = SDMMServiceManagerStatusNotConnected;
-        self.channel = [[SDMMBonjourHelperChannel alloc] initWithNetService:_service
+        self.channel = [[SMMBonjourHelperChannel alloc] initWithNetService:_service
                                                                 inputStream:inputStream
                                                                outputStream:outputStream
                                                                        type:SDMMBonjourHelperChannelTypeReadWrite];
@@ -125,7 +125,7 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 
 - (void)onChannelCommandReceived:(NSNotification*)notification
 {
-    SDMMBonjourHelperChannel *channel = notification.object;
+    SMMBonjourHelperChannel *channel = notification.object;
     if (channel == _channel) {
         NSString *command = notification.userInfo[SDMMBonjourHelperCommandNotificationKey];
         

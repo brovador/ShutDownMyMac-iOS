@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Jesús. All rights reserved.
 //
 
-#import "SDMMBonjourHelperChannel.h"
+#import "SMMBonjourHelperChannel.h"
 
 #define BUFFER_SIZE 1024
 
@@ -16,7 +16,7 @@ NSString * const SDMMBonjourHelperChannelDidReceiveCommandNotification = @"SDMMB
 
 NSString * const SDMMBonjourHelperCommandNotificationKey = @"SDMMBonjourHelperCommandNotificationKey";
 
-@interface SDMMBonjourHelperChannel()<NSStreamDelegate>
+@interface SMMBonjourHelperChannel()<NSStreamDelegate>
 
 @property (nonatomic, assign) BOOL connected;
 @property (nonatomic, assign) BOOL hasSpaceAvailable;
@@ -31,7 +31,7 @@ NSString * const SDMMBonjourHelperCommandNotificationKey = @"SDMMBonjourHelperCo
 @end
 
 
-@implementation SDMMBonjourHelperChannel
+@implementation SMMBonjourHelperChannel
 
 - (instancetype)initWithNetService:(NSNetService *)netService inputStream:(NSInputStream *)inputStream outputStream:(NSOutputStream *)outputStream type:(SDMMBonjourHelperChannelType)type
 {

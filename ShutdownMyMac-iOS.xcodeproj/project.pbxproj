@@ -10,13 +10,13 @@
 		1C192F241AE2C2BC004446BB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C192F231AE2C2BC004446BB /* Icon.png */; };
 		1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */; };
 		1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */; };
-		1CB225361AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB225351AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m */; };
+		1CB225361AB439FE00E5BC5B /* SMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB225351AB439FE00E5BC5B /* SMMBonjourHelperChannel.m */; };
 		1CC766E41AA32CD700BF3D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E31AA32CD700BF3D63 /* main.m */; };
-		1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E61AA32CD700BF3D63 /* AppDelegate.m */; };
+		1CC766E71AA32CD700BF3D63 /* SMMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */; };
 		1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */; };
 		1CC766ED1AA32CD700BF3D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EB1AA32CD700BF3D63 /* Main.storyboard */; };
 		1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EE1AA32CD700BF3D63 /* Images.xcassets */; };
-		1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */; };
+		1CC767091AA32D0700BF3D63 /* SMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC767081AA32D0700BF3D63 /* SMMClientServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,19 +25,19 @@
 		1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMCServiceViewController.m; sourceTree = "<group>"; };
 		1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Orientations.h"; sourceTree = "<group>"; };
 		1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Orientations.m"; sourceTree = "<group>"; };
-		1CB225341AB439FE00E5BC5B /* SDMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMMBonjourHelperChannel.h; sourceTree = "<group>"; };
-		1CB225351AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMMBonjourHelperChannel.m; sourceTree = "<group>"; };
+		1CB225341AB439FE00E5BC5B /* SMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMBonjourHelperChannel.h; sourceTree = "<group>"; };
+		1CB225351AB439FE00E5BC5B /* SMMBonjourHelperChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMBonjourHelperChannel.m; sourceTree = "<group>"; };
 		1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShutdownMyMac-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC766E21AA32CD700BF3D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC766E31AA32CD700BF3D63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1CC766E51AA32CD700BF3D63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1CC766E61AA32CD700BF3D63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1CC766E51AA32CD700BF3D63 /* SMMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMAppDelegate.h; sourceTree = "<group>"; };
+		1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMMAppDelegate.m; sourceTree = "<group>"; };
 		1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCServicesViewController.h; sourceTree = "<group>"; };
 		1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMMCServicesViewController.m; sourceTree = "<group>"; };
 		1CC766EC1AA32CD700BF3D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CC766EE1AA32CD700BF3D63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMMClientServiceManager.h; sourceTree = "<group>"; };
-		1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMMClientServiceManager.m; sourceTree = "<group>"; };
+		1CC767071AA32D0700BF3D63 /* SMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMClientServiceManager.h; sourceTree = "<group>"; };
+		1CC767081AA32D0700BF3D63 /* SMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMClientServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +79,10 @@
 		1CC766E01AA32CD700BF3D63 /* ShutdownMyMac-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				1CB225341AB439FE00E5BC5B /* SDMMBonjourHelperChannel.h */,
-				1CB225351AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m */,
-				1CC766E51AA32CD700BF3D63 /* AppDelegate.h */,
-				1CC766E61AA32CD700BF3D63 /* AppDelegate.m */,
+				1CB225341AB439FE00E5BC5B /* SMMBonjourHelperChannel.h */,
+				1CB225351AB439FE00E5BC5B /* SMMBonjourHelperChannel.m */,
+				1CC766E51AA32CD700BF3D63 /* SMMAppDelegate.h */,
+				1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */,
 				1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */,
 				1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */,
 				1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */,
@@ -90,8 +90,8 @@
 				1CC766EB1AA32CD700BF3D63 /* Main.storyboard */,
 				1CC766EE1AA32CD700BF3D63 /* Images.xcassets */,
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
-				1CC767071AA32D0700BF3D63 /* SDMMClientServiceManager.h */,
-				1CC767081AA32D0700BF3D63 /* SDMMClientServiceManager.m */,
+				1CC767071AA32D0700BF3D63 /* SMMClientServiceManager.h */,
+				1CC767081AA32D0700BF3D63 /* SMMClientServiceManager.m */,
 				1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */,
 				1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */,
 			);
@@ -179,10 +179,10 @@
 			files = (
 				1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */,
 				1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */,
-				1CB225361AB439FE00E5BC5B /* SDMMBonjourHelperChannel.m in Sources */,
+				1CB225361AB439FE00E5BC5B /* SMMBonjourHelperChannel.m in Sources */,
 				1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */,
-				1CC767091AA32D0700BF3D63 /* SDMMClientServiceManager.m in Sources */,
-				1CC766E71AA32CD700BF3D63 /* AppDelegate.m in Sources */,
+				1CC767091AA32D0700BF3D63 /* SMMClientServiceManager.m in Sources */,
+				1CC766E71AA32CD700BF3D63 /* SMMAppDelegate.m in Sources */,
 				1CC766E41AA32CD700BF3D63 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

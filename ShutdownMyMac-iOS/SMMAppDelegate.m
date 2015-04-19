@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Jesús. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SMMAppDelegate.h"
 
-@interface AppDelegate ()
+@interface SMMAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SMMAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

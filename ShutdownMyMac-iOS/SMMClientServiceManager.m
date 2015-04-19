@@ -6,24 +6,24 @@
 //  Copyright (c) 2015 Jesús. All rights reserved.
 //
 
-#import "SDMMClientServiceManager.h"
+#import "SMMClientServiceManager.h"
 
-static SDMMClientServiceManager *_sharedServiceManager;
+static SMMClientServiceManager *_sharedServiceManager;
 
-@interface SDMMClientServiceManager ()<NSNetServiceBrowserDelegate>
+@interface SMMClientServiceManager ()<NSNetServiceBrowserDelegate>
 
 @property (nonatomic, strong) NSMutableArray *foundServices;
 @property (nonatomic, strong) NSNetServiceBrowser *serviceBrowser;
 
 @end
 
-@implementation SDMMClientServiceManager
+@implementation SMMClientServiceManager
 
 + (instancetype)sharedServiceManager
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedServiceManager = [SDMMClientServiceManager new];
+        _sharedServiceManager = [SMMClientServiceManager new];
     });
     return _sharedServiceManager;
 }

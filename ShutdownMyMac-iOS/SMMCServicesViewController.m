@@ -7,7 +7,7 @@
 //
 
 #import "SMMCServicesViewController.h"
-#import "SDMMClientServiceManager.h"
+#import "SMMClientServiceManager.h"
 #import "SMMCServiceViewController.h"
 
 static NSString * const ShowServiceSegueIdentifier = @"showService";
@@ -31,7 +31,7 @@ static inline UIColor* PurpleColor()
 {
     [super viewDidLoad];
     [_tblServices registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellIdentifier"];
-    [[SDMMClientServiceManager sharedServiceManager] setDelegate:self];
+    [[SMMClientServiceManager sharedServiceManager] setDelegate:self];
     
     UIRefreshControl *refreshControl = [UIRefreshControl new];
     refreshControl.tintColor = PurpleColor();
@@ -48,13 +48,13 @@ static inline UIColor* PurpleColor()
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[SDMMClientServiceManager sharedServiceManager] searchServices];
+    [[SMMClientServiceManager sharedServiceManager] searchServices];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[SDMMClientServiceManager sharedServiceManager] stopSearch];
+    [[SMMClientServiceManager sharedServiceManager] stopSearch];
 }
 
 #pragma mark UIStoryboardSegues
@@ -107,8 +107,8 @@ static inline UIColor* PurpleColor()
 
 - (void)handleRefresh
 {
-    [[SDMMClientServiceManager sharedServiceManager] stopSearch];
-    [[SDMMClientServiceManager sharedServiceManager] searchServices];
+    [[SMMClientServiceManager sharedServiceManager] stopSearch];
+    [[SMMClientServiceManager sharedServiceManager] searchServices];
 }
 
 
