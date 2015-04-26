@@ -6,25 +6,24 @@
 //  Copyright (c) 2015 Jesús. All rights reserved.
 //
 
-#import "SDMMClientServiceManager.h"
-#import "SMShutdownService.h"
+#import "SMMClientServiceManager.h"
 
-static SDMMClientServiceManager *_sharedServiceManager;
+static SMMClientServiceManager *_sharedServiceManager;
 
-@interface SDMMClientServiceManager ()<NSNetServiceBrowserDelegate>
+@interface SMMClientServiceManager ()<NSNetServiceBrowserDelegate>
 
 @property (nonatomic, strong) NSMutableArray *foundServices;
 @property (nonatomic, strong) NSNetServiceBrowser *serviceBrowser;
 
 @end
 
-@implementation SDMMClientServiceManager
+@implementation SMMClientServiceManager
 
 + (instancetype)sharedServiceManager
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedServiceManager = [SDMMClientServiceManager new];
+        _sharedServiceManager = [SMMClientServiceManager new];
     });
     return _sharedServiceManager;
 }
@@ -48,9 +47,7 @@ static SDMMClientServiceManager *_sharedServiceManager;
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
 {
-    SMShutdownService *shutdownService = [SMShutdownService new];
-    shutdownService.netService = aNetService;
-    [self.foundServices addObject:shutdownService];
+    [self.foundServices addObject:aNetService];
     
     if (!moreComing) {
         [_delegate clientServiceManagerDidFindServices:self.foundServices];
@@ -61,7 +58,7 @@ static SDMMClientServiceManager *_sharedServiceManager;
 
 - (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
-    NSLog(@"DID STOP SEARCH");
+    
 }
 
 @end

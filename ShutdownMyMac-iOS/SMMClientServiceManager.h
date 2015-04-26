@@ -10,7 +10,7 @@
 
 @protocol SMMClientServiceManagerDelegate;
 
-@interface SDMMClientServiceManager : NSObject
+@interface SMMClientServiceManager : NSObject
 
 @property (nonatomic, assign) NSObject<SMMClientServiceManagerDelegate> *delegate;
 
