@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notification - ShutdownMyMac WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Shutdown WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ShutdownMyMac WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>ShutdownMyMac-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>1CC766F61AA32CD700BF3D63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CCAA3761AED7ED10099516F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
