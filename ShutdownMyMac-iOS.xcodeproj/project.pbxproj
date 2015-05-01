@@ -17,6 +17,7 @@
 		1C80F4351AF3FFB200FC5E45 /* SMMClientServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F4331AF3FFB200FC5E45 /* SMMClientServiceManager.h */; };
 		1C80F4361AF3FFB200FC5E45 /* SMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4341AF3FFB200FC5E45 /* SMMClientServiceManager.m */; };
 		1C80F4371AF400D200FC5E45 /* ShutdownMyMacShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80F40F1AF3FEE800FC5E45 /* ShutdownMyMacShared.framework */; };
+		1C80F43A1AF406B100FC5E45 /* SMMShutdownService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4391AF406B100FC5E45 /* SMMShutdownService.m */; };
 		1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */; };
 		1CB225361AB439FE00E5BC5B /* SMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB225351AB439FE00E5BC5B /* SMMBonjourHelperChannel.m */; };
 		1CC766E41AA32CD700BF3D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E31AA32CD700BF3D63 /* main.m */; };
@@ -93,6 +94,8 @@
 		1C80F4301AF3FF3C00FC5E45 /* SMMWatchKitRequestsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchKitRequestsManager.m; sourceTree = "<group>"; };
 		1C80F4331AF3FFB200FC5E45 /* SMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMClientServiceManager.h; sourceTree = "<group>"; };
 		1C80F4341AF3FFB200FC5E45 /* SMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMClientServiceManager.m; sourceTree = "<group>"; };
+		1C80F4381AF406B100FC5E45 /* SMMShutdownService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMShutdownService.h; sourceTree = "<group>"; };
+		1C80F4391AF406B100FC5E45 /* SMMShutdownService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMShutdownService.m; sourceTree = "<group>"; };
 		1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Orientations.h"; sourceTree = "<group>"; };
 		1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Orientations.m"; sourceTree = "<group>"; };
 		1CB225341AB439FE00E5BC5B /* SMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMBonjourHelperChannel.h; sourceTree = "<group>"; };
@@ -204,14 +207,16 @@
 			children = (
 				1CB225341AB439FE00E5BC5B /* SMMBonjourHelperChannel.h */,
 				1CB225351AB439FE00E5BC5B /* SMMBonjourHelperChannel.m */,
-				1CC766E51AA32CD700BF3D63 /* SMMAppDelegate.h */,
-				1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */,
+				1C80F4381AF406B100FC5E45 /* SMMShutdownService.h */,
+				1C80F4391AF406B100FC5E45 /* SMMShutdownService.m */,
 				1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */,
 				1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */,
 				1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */,
 				1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */,
 				1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */,
 				1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */,
+				1CC766E51AA32CD700BF3D63 /* SMMAppDelegate.h */,
+				1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */,
 				1CC766EB1AA32CD700BF3D63 /* Main.storyboard */,
 				1CC766EE1AA32CD700BF3D63 /* Images.xcassets */,
 				1CC766E11AA32CD700BF3D63 /* Supporting Files */,
@@ -458,6 +463,7 @@
 				1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */,
 				1CC766E71AA32CD700BF3D63 /* SMMAppDelegate.m in Sources */,
 				1CC766E41AA32CD700BF3D63 /* main.m in Sources */,
+				1C80F43A1AF406B100FC5E45 /* SMMShutdownService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
