@@ -34,6 +34,20 @@
                ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1C80F4181AF3FEE800FC5E45"
+               BuildableName = "SMMWatckitTests.xctest"
+               BlueprintName = "SMMWatckitTests"
+               ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "1CC766F61AA32CD700BF3D63"
                BuildableName = "ShutdownMyMac-iOSTests.xctest"
                BlueprintName = "ShutdownMyMac-iOSTests"
+               ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1C80F4181AF3FEE800FC5E45"
+               BuildableName = "SMMWatckitTests.xctest"
+               BlueprintName = "SMMWatckitTests"
                ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -72,7 +96,8 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1CC766DD1AA32CD700BF3D63"
@@ -90,7 +115,8 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1CC766DD1AA32CD700BF3D63"

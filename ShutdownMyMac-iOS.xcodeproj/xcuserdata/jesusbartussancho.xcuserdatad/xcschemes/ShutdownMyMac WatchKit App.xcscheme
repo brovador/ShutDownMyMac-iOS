@@ -48,6 +48,20 @@
                ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1C80F4181AF3FEE800FC5E45"
+               BuildableName = "SMMWatckitTests.xctest"
+               BlueprintName = "SMMWatckitTests"
+               ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -56,6 +70,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1C80F4181AF3FEE800FC5E45"
+               BuildableName = "SMMWatckitTests.xctest"
+               BlueprintName = "SMMWatckitTests"
+               ReferencedContainer = "container:ShutdownMyMac-iOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

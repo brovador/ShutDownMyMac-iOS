@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
-    SMMWatchKitRequestsTypeListDevices,
-    SMMWatchKitRequestsTypeShutdownDevice
-};
-
 @interface SMMWatchKitRequestsManager : NSObject
 
 + (instancetype)sharedManager;
+
+- (void)requestListDevices:(void(^)(NSArray * devices, NSError *error))onComplete;
+- (void)requestConnectDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
+- (void)requestShutdownDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
 
 - (void)handleWatchkitRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *))onComplete;
 
