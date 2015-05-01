@@ -34,6 +34,7 @@ static NSString *const SMMShutdownServiceResponseFail = @"FAIL";
     if (self) {
         
         self.service = service;
+        self.connectionStatus = SMMShutdownServiceConnectionStatusNotConnected;
         
         NSInputStream *inputStream = nil;
         NSOutputStream *outputStream = nil;
@@ -47,9 +48,17 @@ static NSString *const SMMShutdownServiceResponseFail = @"FAIL";
     return self;
 }
 
+
+- (NSString*)name
+{
+    return _service.name;
+}
+
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_channel disconnect];
 }
 
 #pragma mark Public
@@ -92,15 +101,21 @@ static NSString *const SMMShutdownServiceResponseFail = @"FAIL";
     SMMBonjourHelperChannel *channel = notification.object;
     if (channel == _channel) {
         NSString *command = notification.userInfo[SDMMBonjourHelperCommandNotificationKey];
+        NSError *error = nil;
         
         if (_connectionStatus == SMMShutdownServiceConnectionStatusConnecting) {
             if ([command isEqualToString:SMMShutdownServiceResponseSuccess]) {
-                _connectionStatus = SMMShutdownServiceConnectionStatusConnected;
+                self.connectionStatus = SMMShutdownServiceConnectionStatusConnected;
             } else {
-                _connectionStatus = SMMShutdownServiceConnectionStatusNotConnected;
+                self.connectionStatus = SMMShutdownServiceConnectionStatusNotConnected;
             }
         }
-        _onCommandCompleteBlock([NSError new]);
+        
+        if ([command isEqualToString:SMMShutdownServiceResponseFail]) {
+            error = [NSError new];
+        }
+        
+        _onCommandCompleteBlock(error);
         self.onCommandCompleteBlock = nil;
     }
 }

@@ -19,8 +19,6 @@
 - (void)searchServices;
 - (void)stopSearch;
 
-- (void)connectToService:(NSString*)serviceName;
-
 @end
 
 @protocol SMMClientServiceManagerDelegate <NSObject>

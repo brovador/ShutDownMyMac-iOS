@@ -16,7 +16,10 @@ typedef NS_ENUM(NSInteger, SMMShutdownServiceConnectionStatus) {
 
 @interface SMMShutdownService : NSObject
 
+@property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) SMMShutdownServiceConnectionStatus connectionStatus;
+
+- (instancetype)initWithService:(NSNetService*)service;
 
 - (BOOL)sendConnectCommand:(NSString*)deviceName onComplete:(void (^)(NSError *))onComplete;
 - (BOOL)sendShutdownCommand:(void(^)(NSError *error))onComplete;

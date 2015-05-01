@@ -9,6 +9,7 @@
 #import "SMMCServicesViewController.h"
 #import "SMMClientServiceManager.h"
 #import "SMMCServiceViewController.h"
+#import "SMMShutdownService.h"
 
 static NSString * const ShowServiceSegueIdentifier = @"showService";
 static inline UIColor* PurpleColor()
@@ -69,7 +70,9 @@ static inline UIColor* PurpleColor()
 {
     if ([segue.identifier isEqualToString:ShowServiceSegueIdentifier]) {
         SMMCServiceViewController *vc = (SMMCServiceViewController*)segue.destinationViewController;
-        vc.service = _services[[_tblServices indexPathForSelectedRow].row];
+        NSNetService *netService = _services[[_tblServices indexPathForSelectedRow].row];
+        SMMShutdownService *service = [[SMMShutdownService alloc] initWithService:netService];
+        vc.service = service;
     }
 }
 

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SMMShutdownService;
+
 @interface SMMCServiceViewController : UIViewController
 
-@property (nonatomic, strong) NSNetService *service;
+@property (nonatomic, strong) SMMShutdownService *service;
 
 @end

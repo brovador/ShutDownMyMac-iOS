@@ -7,25 +7,10 @@
 //
 
 #import "SMMCServiceViewController.h"
-#import "SMMBonjourHelperChannel.h"
-
-typedef NS_ENUM(NSInteger, SDMMServiceManagerStatus) {
-    SDMMServiceManagerStatusNotConnected,
-    SDMMServiceManagerStatusConnected,
-    SDMMServiceManagerStatusShutdownCommandSent
-};
-
-static NSString *const SDMMServiceManagerCommandPair = @"PAIR";
-static NSString *const SDMMServiceManagerCommandShutdown = @"SHUTDOWN";
-
-static NSString *const SDMMServiceManagerResponseSuccess = @"SUCCESS";
-static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
+#import "SMMShutdownService.h"
 
 
 @interface SMMCServiceViewController ()
-
-@property (nonatomic, assign) SDMMServiceManagerStatus serviceStatus;
-@property (nonatomic, strong) SMMBonjourHelperChannel *channel;
 
 @property (nonatomic, assign) IBOutlet UILabel *lbServiceName;
 @property (nonatomic, assign) IBOutlet UIButton *btnConnect;
@@ -36,38 +21,19 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 
 @implementation SMMCServiceViewController
 
-- (void)setService:(NSNetService *)service
+- (void)setService:(SMMShutdownService *)service
 {
     if (service != _service) {
+        [_service removeObserver:self forKeyPath:@"connectionStatus"];
         _service = service;
-        
-        
-        NSInputStream *inputStream = nil;
-        NSOutputStream *outputStream = nil;
-        [_service getInputStream:&inputStream outputStream:&outputStream];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onChannelCommandReceived:)
-                                                     name:SDMMBonjourHelperChannelDidReceiveCommandNotification
-                                                   object:nil];
-        
-        self.serviceStatus = SDMMServiceManagerStatusNotConnected;
-        self.channel = [[SMMBonjourHelperChannel alloc] initWithNetService:_service
-                                                                inputStream:inputStream
-                                                               outputStream:outputStream
-                                                                       type:SDMMBonjourHelperChannelTypeReadWrite];
-        
-
+        [_service addObserver:self forKeyPath:@"connectionStatus" options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
 
-- (void)setServiceStatus:(SDMMServiceManagerStatus)serviceStatus
+- (void)dealloc
 {
-    if (serviceStatus != _serviceStatus) {
-        _serviceStatus = serviceStatus;
-        [self _updateView];
-    }
+    [_service removeObserver:self forKeyPath:@"connectionStatus"];
 }
 
 
@@ -77,14 +43,11 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
     [self _updateView];
     
     NSString *deviceName = [[UIDevice currentDevice] name];
-    NSString *command = [NSString stringWithFormat:@"%@:%@", SDMMServiceManagerCommandPair, deviceName];
-    [_channel sendCommand:command];
-}
-
-
-- (void)dealloc
-{
-    [_channel disconnect];
+    [_service sendConnectCommand:deviceName onComplete:^(NSError *error) {
+        if (error) {
+            [self backAction:nil];
+        }
+    }];
 }
 
 #pragma mark IBActions
@@ -97,8 +60,13 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 
 - (IBAction)shutdownAction:(id)sender
 {
-    self.serviceStatus = SDMMServiceManagerStatusShutdownCommandSent;
-    [_channel sendCommand:SDMMServiceManagerCommandShutdown];
+    [_service sendShutdownCommand:^(NSError *error) {
+        if (error) {
+            [self _showErrorAlert];
+        } else {
+            [self backAction:nil];
+        }
+    }];
 }
 
 #pragma mark Private
@@ -117,36 +85,16 @@ static NSString *const SDMMServiceManagerResponseFail = @"FAIL";
 - (void)_updateView
 {
     [_lbServiceName setText:_service.name];
-    [_btnConnect setEnabled:(_serviceStatus == SDMMServiceManagerStatusNotConnected)];
-    [_btnShutdown setEnabled:(_serviceStatus == SDMMServiceManagerStatusConnected)];
+    [_btnConnect setEnabled:_service.connectionStatus == SMMShutdownServiceConnectionStatusNotConnected];
+    [_btnShutdown setEnabled:_service.connectionStatus == SMMShutdownServiceConnectionStatusConnected];
 }
 
-#pragma mark SDMMBonjourHelperChannel
+#pragma mark KVO
 
-- (void)onChannelCommandReceived:(NSNotification*)notification
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    SMMBonjourHelperChannel *channel = notification.object;
-    if (channel == _channel) {
-        NSString *command = notification.userInfo[SDMMBonjourHelperCommandNotificationKey];
-        
-        switch (_serviceStatus) {
-            case SDMMServiceManagerStatusNotConnected:
-                if ([command isEqualToString:SDMMServiceManagerResponseSuccess]) {
-                    self.serviceStatus = SDMMServiceManagerStatusConnected;
-                } else if ([command isEqualToString:SDMMServiceManagerResponseFail]) {
-                    [self backAction:nil];
-                }
-                break;
-            case SDMMServiceManagerStatusShutdownCommandSent:
-                if ([command isEqualToString:SDMMServiceManagerResponseSuccess]) {
-                    [self backAction:nil];
-                } else {
-                    self.serviceStatus = SDMMServiceManagerStatusConnected;
-                    [self _showErrorAlert];
-                }
-            default:
-                break;
-        }
+    if (object == _service) {
+        [self _updateView];
     }
 }
 
