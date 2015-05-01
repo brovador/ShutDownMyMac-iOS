@@ -16,6 +16,6 @@
 - (void)requestConnectDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
 - (void)requestShutdownDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
 
-- (void)handleWatchkitRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *))onComplete;
+- (void)handleWatchkitRequest:(NSDictionary *)userInfo onComplete:(void (^)(NSDictionary *info, NSError* error))onComplete;
 
 @end

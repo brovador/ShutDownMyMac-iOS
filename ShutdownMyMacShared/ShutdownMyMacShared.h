@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "SMMWatchKitRequestsManager.h"
+#import "SMMShutdownSerivce.h"
+#import "SMMClientServiceManager.h"
 
 //! Project version number for SMMWatckit.
 FOUNDATION_EXPORT double SMMWatckitVersionNumber;

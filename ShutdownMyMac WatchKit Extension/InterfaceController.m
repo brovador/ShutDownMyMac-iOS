@@ -7,7 +7,7 @@
 //
 
 #import "InterfaceController.h"
-#import "SMMClientServiceManager.h"
+#import "SMMWatchKitRequestsManager.h"
 
 
 @interface InterfaceController()
@@ -22,9 +22,10 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    [WKInterfaceController openParentApplication:@{@"requestType": @(0)} reply:^(NSDictionary *replyInfo, NSError *error) {
-        [_lbTest setText:@"REPLY RECEIVED"];
-        NSLog(@"%@", replyInfo);
+    [[SMMWatchKitRequestsManager sharedManager] requestListDevices:^(NSArray *devices, NSError *error) {
+        if (!error) {
+            NSLog(@"DEVICES RETRIEVED: %@", devices);
+        }
     }];
     
     [_lbTest setText:@"OK running"];

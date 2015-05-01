@@ -22,8 +22,9 @@
 
 - (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
-    NSLog(@"handle request by delegate");
-    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo onComplete:reply];
+    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo onComplete:^(NSDictionary *info, NSError *error) {
+        reply(info);
+    }];
 }
 
 @end

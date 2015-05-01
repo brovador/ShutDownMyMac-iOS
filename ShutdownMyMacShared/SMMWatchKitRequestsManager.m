@@ -8,12 +8,13 @@
 #import <WatchKit/WatchKit.h>
 
 #import "SMMClientServiceManager.h"
+#import "SMMShutdownService.h"
 #import "SMMWatchKitRequestsManager.h"
 
 static NSString *const SMMWatchkitRequestTypeKey = @"request";
 static NSString *const SMMWatchkitRequestDeviceNameKey = @"device";
 
-static NSString *const SMMWatchkitReplyDevices = @"devices";
+static NSString *const SMMWatchkitReplyDevicesKey = @"devices";
 
 static SMMWatchKitRequestsManager *instance;
 
@@ -25,7 +26,10 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
 
 @interface SMMWatchKitRequestsManager ()<SMMClientServiceManagerDelegate>
 
-@property (nonatomic, strong) void(^listDevicesCallback)(NSDictionary*);
+@property (nonatomic, strong) NSArray *services;
+@property (nonatomic, strong) SMMShutdownService *shutdownService;
+
+@property (nonatomic, strong) void(^handleRequestCallback)(NSDictionary* info, NSError* error);
 
 @end
 
@@ -49,7 +53,7 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
     [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *error) {
         NSArray *devices;
         if (error == nil) {
-            devices = replyInfo[SMMWatchkitReplyDevices];
+            devices = replyInfo[SMMWatchkitReplyDevicesKey];
         }
         onComplete(devices, error);
     }];
@@ -80,27 +84,70 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
 }
 
 
-- (void)handleWatchkitRequest:(NSDictionary *)userInfo onComplete:(void (^)(NSDictionary *))onComplete
+- (void)handleWatchkitRequest:(NSDictionary *)userInfo onComplete:(void (^)(NSDictionary *info, NSError* error))onComplete
 {
     SMMWatchkitRequestType requestType = [userInfo[SMMWatchkitRequestTypeKey] intValue];
     if (requestType == SMMWatchkitRequestTypeListDevices) {
         [self _handleListDevicesRequest:userInfo onComplete:onComplete];
     } else if (requestType == SMMWatchkitRequestTypeConnectToDevice) {
-        
+        [self _handleConnectToDeviceRequest:userInfo onComplete:onComplete];
     } else if (requestType == SMMWatchkitRequestTypeShutdownDevice) {
-        
+        [self _handleShutdownDeviceRequest:userInfo onComplete:onComplete];
     }
 }
 
 
 #pragma mark Private
 
-- (void)_handleListDevicesRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *))onComplete
+- (void)_handleListDevicesRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *info, NSError *error))onComplete
 {
-    self.listDevicesCallback = onComplete;
-    
+    self.handleRequestCallback = onComplete;
     [[SMMClientServiceManager sharedServiceManager] setDelegate:self];
     [[SMMClientServiceManager sharedServiceManager] searchServices];
+}
+
+
+- (void)_handleConnectToDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info, NSError *error))onComplete
+{
+    NSString *deviceName = userInfo[SMMWatchkitRequestDeviceNameKey];
+    NSNetService *service = [self _serviceWithName:deviceName];
+    if (service) {
+        self.shutdownService = [[SMMShutdownService alloc] initWithService:service];
+        [_shutdownService sendConnectCommand:deviceName onComplete:^(NSError *error) {
+            onComplete(nil, error);
+        }];
+    } else {
+        //TODO: write error
+        onComplete(nil, [NSError new]);
+    }
+}
+
+
+- (void)_handleShutdownDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info, NSError *error))onComplete
+{
+    if (_shutdownService.connectionStatus == SMMShutdownServiceConnectionStatusConnected) {
+        __block SMMWatchKitRequestsManager* weakSelf = self;
+        [_shutdownService sendShutdownCommand:^(NSError *error) {
+            weakSelf.shutdownService = nil;
+            onComplete(nil, error);
+        }];
+    } else {
+        //TODO: write error
+        onComplete(nil, [NSError new]);
+    }
+}
+
+
+- (NSNetService*)_serviceWithName:(NSString*)name
+{
+    NSNetService *result = nil;
+    for (NSNetService *service in _services) {
+        if ([service.name isEqualToString:name]) {
+            result = service;
+            break;
+        }
+    }
+    return result;
 }
 
 #pragma mark SMMClientServiceManagerDelegate
@@ -110,14 +157,16 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
     [[SMMClientServiceManager sharedServiceManager] stopSearch];
     
     NSMutableArray *services = [NSMutableArray new];
+    self.services = shutdownServices;
     for (NSNetService *service in shutdownServices) {
         [services addObject:service.name];
     }
     
-    void(^listDevicesCallback)(NSDictionary*) = self.listDevicesCallback;
-    listDevicesCallback(@{@"services" : services});
     
-    self.listDevicesCallback = nil;
+    void(^listDevicesCallback)(NSDictionary*, NSError*) = self.handleRequestCallback;
+    listDevicesCallback(@{SMMWatchkitReplyDevicesKey : services}, nil);
+    
+    self.handleRequestCallback = nil;
 }
 
 @end

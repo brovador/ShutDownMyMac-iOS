@@ -112,6 +112,7 @@ static NSString *const SMMShutdownServiceResponseFail = @"FAIL";
         }
         
         if ([command isEqualToString:SMMShutdownServiceResponseFail]) {
+            //TODO: write error
             error = [NSError new];
         }
         
