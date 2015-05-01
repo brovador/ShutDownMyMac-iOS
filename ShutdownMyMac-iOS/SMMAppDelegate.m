@@ -7,6 +7,7 @@
 //
 
 #import "SMMAppDelegate.h"
+#import "SMMWatchKitRequestsManager.h"
 
 @interface SMMAppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
+}
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
+{
+    NSLog(@"handle request by delegate");
+    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo onComplete:reply];
 }
 
 @end

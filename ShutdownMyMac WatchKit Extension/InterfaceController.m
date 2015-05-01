@@ -7,9 +7,12 @@
 //
 
 #import "InterfaceController.h"
+#import "SMMClientServiceManager.h"
 
 
 @interface InterfaceController()
+
+@property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbTest;
 
 @end
 
@@ -18,13 +21,19 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    
+    [WKInterfaceController openParentApplication:@{@"requestType": @(0)} reply:^(NSDictionary *replyInfo, NSError *error) {
+        [_lbTest setText:@"REPLY RECEIVED"];
+        NSLog(@"%@", replyInfo);
+    }];
+    
+    [_lbTest setText:@"OK running"];
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
 }
 
 - (void)didDeactivate {
