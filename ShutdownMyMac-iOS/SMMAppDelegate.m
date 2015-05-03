@@ -22,9 +22,7 @@
 
 - (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
-    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo onComplete:^(NSDictionary *info, NSError *error) {
-        reply(info);
-    }];
+    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo reply:reply];
 }
 
 @end

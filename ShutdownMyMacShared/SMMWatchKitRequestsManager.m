@@ -15,6 +15,7 @@ static NSString *const SMMWatchkitRequestTypeKey = @"request";
 static NSString *const SMMWatchkitRequestDeviceNameKey = @"device";
 
 static NSString *const SMMWatchkitReplyDevicesKey = @"devices";
+static NSString *const SMMWatchkitReplyErrorKey = @"error";
 
 static SMMWatchKitRequestsManager *instance;
 
@@ -29,7 +30,7 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
 @property (nonatomic, strong) NSArray *services;
 @property (nonatomic, strong) SMMShutdownService *shutdownService;
 
-@property (nonatomic, strong) void(^handleRequestCallback)(NSDictionary* info, NSError* error);
+@property (nonatomic, strong) void(^handleRequestCallback)(NSDictionary* info);
 
 @end
 
@@ -45,16 +46,29 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
 }
 
 
+- (void)dealloc
+{
+    NSLog(@"WATCHKITREQUESTS MANAGER dealloc: %@", self);
+}
+
 - (void)requestListDevices:(void(^)(NSArray * devices, NSError *error))onComplete
 {
     NSDictionary *userInfo = @{
                                SMMWatchkitRequestTypeKey : @(SMMWatchkitRequestTypeListDevices)
                                };
-    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *error) {
+    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *replyError) {
         NSArray *devices;
+        NSError *error = replyError;
+        
+        if (!replyError && replyInfo[SMMWatchkitReplyErrorKey]) {
+            //TODO: fill error properly
+            error = [NSError new];
+        }
+        
         if (error == nil) {
             devices = replyInfo[SMMWatchkitReplyDevicesKey];
         }
+        
         onComplete(devices, error);
     }];
 }
@@ -66,7 +80,12 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
                                SMMWatchkitRequestTypeKey : @(SMMWatchkitRequestTypeConnectToDevice),
                                SMMWatchkitRequestDeviceNameKey : deviceName
                                };
-    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *error) {
+    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *replyError) {
+        NSError *error = replyError;
+        if (!replyError && replyInfo[SMMWatchkitReplyErrorKey]) {
+            //TODO: fill error properly
+            error = [NSError new];
+        }
         onComplete(error);
     }];
 }
@@ -78,28 +97,33 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
                                SMMWatchkitRequestTypeKey : @(SMMWatchkitRequestTypeShutdownDevice),
                                SMMWatchkitRequestDeviceNameKey : deviceName
                                };
-    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *error) {
+    [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *replyError) {
+        NSError *error = replyError;
+        if (!replyError && replyInfo[SMMWatchkitReplyErrorKey]) {
+            //TODO: fill error properly
+            error = [NSError new];
+        }
         onComplete(error);
     }];
 }
 
 
-- (void)handleWatchkitRequest:(NSDictionary *)userInfo onComplete:(void (^)(NSDictionary *info, NSError* error))onComplete
+- (void)handleWatchkitRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
     SMMWatchkitRequestType requestType = [userInfo[SMMWatchkitRequestTypeKey] intValue];
     if (requestType == SMMWatchkitRequestTypeListDevices) {
-        [self _handleListDevicesRequest:userInfo onComplete:onComplete];
+        [self _handleListDevicesRequest:userInfo onComplete:reply];
     } else if (requestType == SMMWatchkitRequestTypeConnectToDevice) {
-        [self _handleConnectToDeviceRequest:userInfo onComplete:onComplete];
+        [self _handleConnectToDeviceRequest:userInfo onComplete:reply];
     } else if (requestType == SMMWatchkitRequestTypeShutdownDevice) {
-        [self _handleShutdownDeviceRequest:userInfo onComplete:onComplete];
+        [self _handleShutdownDeviceRequest:userInfo onComplete:reply];
     }
 }
 
 
 #pragma mark Private
 
-- (void)_handleListDevicesRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *info, NSError *error))onComplete
+- (void)_handleListDevicesRequest:(NSDictionary*)userInfo onComplete:(void (^)(NSDictionary *info))onComplete
 {
     self.handleRequestCallback = onComplete;
     [[SMMClientServiceManager sharedServiceManager] setDelegate:self];
@@ -107,33 +131,41 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
 }
 
 
-- (void)_handleConnectToDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info, NSError *error))onComplete
+- (void)_handleConnectToDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info))onComplete
 {
     NSString *deviceName = userInfo[SMMWatchkitRequestDeviceNameKey];
     NSNetService *service = [self _serviceWithName:deviceName];
     if (service) {
         self.shutdownService = [[SMMShutdownService alloc] initWithService:service];
         [_shutdownService sendConnectCommand:deviceName onComplete:^(NSError *error) {
-            onComplete(nil, error);
+            if (error) {
+                onComplete(@{SMMWatchkitReplyErrorKey : @""});
+            } else {
+                onComplete(nil);
+            }
         }];
     } else {
         //TODO: write error
-        onComplete(nil, [NSError new]);
+        onComplete(@{SMMWatchkitReplyErrorKey : @""});
     }
 }
 
 
-- (void)_handleShutdownDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info, NSError *error))onComplete
+- (void)_handleShutdownDeviceRequest:(NSDictionary*)userInfo onComplete:(void(^)(NSDictionary *info))onComplete
 {
     if (_shutdownService.connectionStatus == SMMShutdownServiceConnectionStatusConnected) {
         __block SMMWatchKitRequestsManager* weakSelf = self;
         [_shutdownService sendShutdownCommand:^(NSError *error) {
+            if (error) {
+                onComplete(@{SMMWatchkitReplyErrorKey : @""});
+            } else {
+                onComplete(nil);
+            }
             weakSelf.shutdownService = nil;
-            onComplete(nil, error);
         }];
     } else {
         //TODO: write error
-        onComplete(nil, [NSError new]);
+        onComplete(@{SMMWatchkitReplyErrorKey : @""});
     }
 }
 
@@ -162,9 +194,8 @@ typedef NS_ENUM(NSInteger, SMMWatchkitRequestType) {
         [services addObject:service.name];
     }
     
-    
-    void(^listDevicesCallback)(NSDictionary*, NSError*) = self.handleRequestCallback;
-    listDevicesCallback(@{SMMWatchkitReplyDevicesKey : services}, nil);
+    void(^listDevicesCallback)(NSDictionary*) = self.handleRequestCallback;
+    listDevicesCallback(@{SMMWatchkitReplyDevicesKey : services});
     
     self.handleRequestCallback = nil;
 }

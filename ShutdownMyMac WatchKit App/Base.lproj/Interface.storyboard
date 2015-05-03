@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ADd-95-YFJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
@@ -35,14 +35,37 @@
             </objects>
             <point key="canvasLocation" x="59" y="297"/>
         </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Pbp-aQ-FdE">
+            <objects>
+                <controller id="ADd-95-YFJ">
+                    <items>
+                        <button width="1" alignment="left" title="Start" id="g0M-LN-0el">
+                            <connections>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="wUo-fr-PMR"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="59" y="36"/>
+        </scene>
         <!--Service Interface Controller-->
         <scene sceneID="1cJ-JI-oxX">
             <objects>
                 <controller id="yeS-8h-5z2" customClass="SMMWKServiceInterfaceController">
                     <items>
                         <label width="1" alignment="left" text="lbDeviceName" textAlignment="center" id="a2u-E6-GCL"/>
-                        <button width="1" alignment="left" title="Shutdown" id="YQI-rf-7RP"/>
+                        <button width="1" alignment="left" title="Shutdown" id="YQI-rf-7RP">
+                            <connections>
+                                <action selector="shutdownAction" destination="yeS-8h-5z2" id="Vwz-WY-mFh"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="btnShutdown" destination="YQI-rf-7RP" id="6B9-HX-ucE"/>
+                        <outlet property="lbDeviceName" destination="a2u-E6-GCL" id="bGb-YE-yrD"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="321" y="297"/>

@@ -13,8 +13,8 @@
 
 @property (nonatomic, copy) NSString *deviceName;
 
-@property (nonatomic, assign) WKInterfaceLabel *lbDeviceName;
-@property (nonatomic, assign) WKInterfaceButton *btnShutdown;
+@property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbDeviceName;
+@property (nonatomic, assign) IBOutlet WKInterfaceButton *btnShutdown;
 
 @end
 
@@ -34,7 +34,7 @@
     __block SMMWKServiceInterfaceController *weakSelf = self;
     [[SMMWatchKitRequestsManager sharedManager] requestConnectDevice:_deviceName onComplete:^(NSError *error) {
         if (error) {
-            [weakSelf popController];
+            [weakSelf dismissController];
         } else {
             [_btnShutdown setEnabled:YES];
         }
@@ -58,7 +58,7 @@
             //TODO: handle error...
             [_btnShutdown setEnabled:YES];
         } else {
-            [weakSelf popController];
+            [weakSelf dismissController];
         }
     }];
 }
