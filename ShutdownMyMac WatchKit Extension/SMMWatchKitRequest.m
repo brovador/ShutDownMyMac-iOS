@@ -21,6 +21,12 @@
     NSDictionary *userInfo = @{
                                SMMWatchkitRequestTypeKey : @(SMMWatchkitRequestTypeListDevices)
                                };
+    
+    //TODO: fix this
+    //UGLY HACK: AppDelegate of the first call is destroyed when reply is sent. We made a fake first call in
+    //order to make the real logic in the 2nd one.
+    [WKInterfaceController openParentApplication:@{} reply:^(NSDictionary *replyInfo, NSError *error) {}];
+    
     [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *replyError) {
         NSArray *devices;
         NSError *error = replyError;

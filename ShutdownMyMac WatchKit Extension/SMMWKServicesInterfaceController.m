@@ -42,6 +42,7 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
     
     __block SMMWKServicesInterfaceController *weakSelf = self;
     SMMWatchKitRequest *watchkitRequest = [SMMWatchKitRequest new];
+    
     [watchkitRequest requestListDevices:^(NSArray *devices, NSError *error) {
         if (!error) {
             [weakSelf _updateDevicesTable:devices];

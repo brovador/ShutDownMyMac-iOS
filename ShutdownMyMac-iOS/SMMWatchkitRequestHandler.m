@@ -32,6 +32,9 @@
         [self _handleConnectToDeviceRequest:userInfo onComplete:reply];
     } else if (requestType == SMMWatchkitRequestTypeShutdownDevice) {
         [self _handleShutdownDeviceRequest:userInfo onComplete:reply];
+    } else {
+        //TODO: write error
+        reply(@{SMMWatchkitReplyErrorKey : @""});
     }
 }
 
@@ -54,6 +57,7 @@
         self.shutdownService = [[SMMShutdownService alloc] initWithService:service];
         [_shutdownService sendConnectCommand:deviceName onComplete:^(NSError *error) {
             if (error) {
+                //TODO: write error
                 onComplete(@{SMMWatchkitReplyErrorKey : @""});
             } else {
                 onComplete(nil);
@@ -72,6 +76,7 @@
         __block SMMWatchkitRequestHandler* weakSelf = self;
         [_shutdownService sendShutdownCommand:^(NSError *error) {
             if (error) {
+                //TODO: write error
                 onComplete(@{SMMWatchkitReplyErrorKey : @""});
             } else {
                 onComplete(nil);
