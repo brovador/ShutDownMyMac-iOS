@@ -7,17 +7,3 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "SMMWatchKitRequestsManager.h"
-#import "SMMShutdownSerivce.h"
-#import "SMMClientServiceManager.h"
-
-//! Project version number for SMMWatckit.
-FOUNDATION_EXPORT double SMMWatckitVersionNumber;
-
-//! Project version string for SMMWatckit.
-FOUNDATION_EXPORT const unsigned char SMMWatckitVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SMMWatckit/PublicHeader.h>
-
-

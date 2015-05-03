@@ -13,15 +13,7 @@
 		1C80F4141AF3FEE800FC5E45 /* ShutdownMyMacShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F4131AF3FEE800FC5E45 /* ShutdownMyMacShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C80F4261AF3FEE800FC5E45 /* ShutdownMyMacShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80F40F1AF3FEE800FC5E45 /* ShutdownMyMacShared.framework */; };
 		1C80F4271AF3FEE800FC5E45 /* ShutdownMyMacShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80F40F1AF3FEE800FC5E45 /* ShutdownMyMacShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1C80F4311AF3FF3C00FC5E45 /* SMMWatchKitRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F42F1AF3FF3C00FC5E45 /* SMMWatchKitRequest.h */; };
-		1C80F4321AF3FF3C00FC5E45 /* SMMWatchKitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4301AF3FF3C00FC5E45 /* SMMWatchKitRequest.m */; };
-		1C80F4351AF3FFB200FC5E45 /* SMMClientServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F4331AF3FFB200FC5E45 /* SMMClientServiceManager.h */; };
-		1C80F4361AF3FFB200FC5E45 /* SMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4341AF3FFB200FC5E45 /* SMMClientServiceManager.m */; };
 		1C80F4371AF400D200FC5E45 /* ShutdownMyMacShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80F40F1AF3FEE800FC5E45 /* ShutdownMyMacShared.framework */; };
-		1C80F4471AF4240700FC5E45 /* SMMBonjourHelperChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F4431AF4240700FC5E45 /* SMMBonjourHelperChannel.h */; };
-		1C80F4481AF4240700FC5E45 /* SMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4441AF4240700FC5E45 /* SMMBonjourHelperChannel.m */; };
-		1C80F4491AF4240700FC5E45 /* SMMShutdownService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C80F4451AF4240700FC5E45 /* SMMShutdownService.h */; };
-		1C80F44A1AF4240700FC5E45 /* SMMShutdownService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C80F4461AF4240700FC5E45 /* SMMShutdownService.m */; };
 		1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */; };
 		1CC766E41AA32CD700BF3D63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E31AA32CD700BF3D63 /* main.m */; };
 		1CC766E71AA32CD700BF3D63 /* SMMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E61AA32CD700BF3D63 /* SMMAppDelegate.m */; };
@@ -35,8 +27,12 @@
 		1CCAA3801AED7ED10099516F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CCAA37E1AED7ED10099516F /* Interface.storyboard */; };
 		1CCAA3821AED7ED10099516F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCAA3811AED7ED10099516F /* Images.xcassets */; };
 		1CCAA3851AED7ED10099516F /* ShutdownMyMac WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1CCAA3681AED7ED10099516F /* ShutdownMyMac WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1CE3EEB71AF682EF00254240 /* SMMWatchkitRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CE3EEB51AF682EF00254240 /* SMMWatchkitRequestHandler.h */; };
-		1CE3EEB81AF682EF00254240 /* SMMWatchkitRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEB61AF682EF00254240 /* SMMWatchkitRequestHandler.m */; };
+		1CE3EEBC1AF688EC00254240 /* SMMWatchKitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEBB1AF688EC00254240 /* SMMWatchKitRequest.m */; };
+		1CE3EEBF1AF688FA00254240 /* SMMWatchkitRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEBE1AF688FA00254240 /* SMMWatchkitRequestHandler.m */; };
+		1CE3EEC11AF6894800254240 /* SMMWatchkitRequestsDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEC01AF6894800254240 /* SMMWatchkitRequestsDefines.m */; };
+		1CE3EEC81AF689DB00254240 /* SMMBonjourHelperChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEC31AF689DB00254240 /* SMMBonjourHelperChannel.m */; };
+		1CE3EEC91AF689DB00254240 /* SMMClientServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEC51AF689DB00254240 /* SMMClientServiceManager.m */; };
+		1CE3EECA1AF689DB00254240 /* SMMShutdownService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3EEC71AF689DB00254240 /* SMMShutdownService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,14 +93,6 @@
 		1C80F40F1AF3FEE800FC5E45 /* ShutdownMyMacShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShutdownMyMacShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C80F4121AF3FEE800FC5E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C80F4131AF3FEE800FC5E45 /* ShutdownMyMacShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShutdownMyMacShared.h; sourceTree = "<group>"; };
-		1C80F42F1AF3FF3C00FC5E45 /* SMMWatchKitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMWatchKitRequest.h; sourceTree = "<group>"; };
-		1C80F4301AF3FF3C00FC5E45 /* SMMWatchKitRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchKitRequest.m; sourceTree = "<group>"; };
-		1C80F4331AF3FFB200FC5E45 /* SMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMClientServiceManager.h; sourceTree = "<group>"; };
-		1C80F4341AF3FFB200FC5E45 /* SMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMClientServiceManager.m; sourceTree = "<group>"; };
-		1C80F4431AF4240700FC5E45 /* SMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMBonjourHelperChannel.h; sourceTree = "<group>"; };
-		1C80F4441AF4240700FC5E45 /* SMMBonjourHelperChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMBonjourHelperChannel.m; sourceTree = "<group>"; };
-		1C80F4451AF4240700FC5E45 /* SMMShutdownService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMShutdownService.h; sourceTree = "<group>"; };
-		1C80F4461AF4240700FC5E45 /* SMMShutdownService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMShutdownService.m; sourceTree = "<group>"; };
 		1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Orientations.h"; sourceTree = "<group>"; };
 		1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Orientations.m"; sourceTree = "<group>"; };
 		1CC766DE1AA32CD700BF3D63 /* ShutdownMyMac-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShutdownMyMac-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,9 +116,18 @@
 		1CCAA37D1AED7ED10099516F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CCAA37F1AED7ED10099516F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		1CCAA3811AED7ED10099516F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1CE3EEB51AF682EF00254240 /* SMMWatchkitRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMWatchkitRequestHandler.h; sourceTree = "<group>"; };
-		1CE3EEB61AF682EF00254240 /* SMMWatchkitRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchkitRequestHandler.m; sourceTree = "<group>"; };
 		1CE3EEB91AF6851B00254240 /* SMMWatchkitRequestsDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMWatchkitRequestsDefines.h; sourceTree = "<group>"; };
+		1CE3EEBA1AF688EC00254240 /* SMMWatchKitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMWatchKitRequest.h; sourceTree = "<group>"; };
+		1CE3EEBB1AF688EC00254240 /* SMMWatchKitRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchKitRequest.m; sourceTree = "<group>"; };
+		1CE3EEBD1AF688FA00254240 /* SMMWatchkitRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMWatchkitRequestHandler.h; sourceTree = "<group>"; };
+		1CE3EEBE1AF688FA00254240 /* SMMWatchkitRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchkitRequestHandler.m; sourceTree = "<group>"; };
+		1CE3EEC01AF6894800254240 /* SMMWatchkitRequestsDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMWatchkitRequestsDefines.m; sourceTree = "<group>"; };
+		1CE3EEC21AF689DB00254240 /* SMMBonjourHelperChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMBonjourHelperChannel.h; sourceTree = "<group>"; };
+		1CE3EEC31AF689DB00254240 /* SMMBonjourHelperChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMBonjourHelperChannel.m; sourceTree = "<group>"; };
+		1CE3EEC41AF689DB00254240 /* SMMClientServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMClientServiceManager.h; sourceTree = "<group>"; };
+		1CE3EEC51AF689DB00254240 /* SMMClientServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMClientServiceManager.m; sourceTree = "<group>"; };
+		1CE3EEC61AF689DB00254240 /* SMMShutdownService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMShutdownService.h; sourceTree = "<group>"; };
+		1CE3EEC71AF689DB00254240 /* SMMShutdownService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMShutdownService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,17 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				1C80F4131AF3FEE800FC5E45 /* ShutdownMyMacShared.h */,
-				1C80F4431AF4240700FC5E45 /* SMMBonjourHelperChannel.h */,
-				1C80F4441AF4240700FC5E45 /* SMMBonjourHelperChannel.m */,
-				1C80F4451AF4240700FC5E45 /* SMMShutdownService.h */,
-				1C80F4461AF4240700FC5E45 /* SMMShutdownService.m */,
-				1C80F4331AF3FFB200FC5E45 /* SMMClientServiceManager.h */,
-				1C80F4341AF3FFB200FC5E45 /* SMMClientServiceManager.m */,
 				1CE3EEB91AF6851B00254240 /* SMMWatchkitRequestsDefines.h */,
-				1CE3EEB51AF682EF00254240 /* SMMWatchkitRequestHandler.h */,
-				1CE3EEB61AF682EF00254240 /* SMMWatchkitRequestHandler.m */,
-				1C80F42F1AF3FF3C00FC5E45 /* SMMWatchKitRequest.h */,
-				1C80F4301AF3FF3C00FC5E45 /* SMMWatchKitRequest.m */,
+				1CE3EEC01AF6894800254240 /* SMMWatchkitRequestsDefines.m */,
 				1C80F4111AF3FEE800FC5E45 /* Supporting Files */,
 			);
 			path = ShutdownMyMacShared;
@@ -222,10 +210,18 @@
 		1CC766E01AA32CD700BF3D63 /* ShutdownMyMac-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1CE3EEC21AF689DB00254240 /* SMMBonjourHelperChannel.h */,
+				1CE3EEC31AF689DB00254240 /* SMMBonjourHelperChannel.m */,
+				1CE3EEC41AF689DB00254240 /* SMMClientServiceManager.h */,
+				1CE3EEC51AF689DB00254240 /* SMMClientServiceManager.m */,
+				1CE3EEC61AF689DB00254240 /* SMMShutdownService.h */,
+				1CE3EEC71AF689DB00254240 /* SMMShutdownService.m */,
 				1CC766E81AA32CD700BF3D63 /* SMMCServicesViewController.h */,
 				1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */,
 				1C5A224F1AA4E29C001CE2F4 /* SMMCServiceViewController.h */,
 				1C5A22501AA4E29C001CE2F4 /* SMMCServiceViewController.m */,
+				1CE3EEBD1AF688FA00254240 /* SMMWatchkitRequestHandler.h */,
+				1CE3EEBE1AF688FA00254240 /* SMMWatchkitRequestHandler.m */,
 				1C9AE2E61AE3B46A00BC7914 /* UIViewController+Orientations.h */,
 				1C9AE2E71AE3B46A00BC7914 /* UIViewController+Orientations.m */,
 				1CC766E51AA32CD700BF3D63 /* SMMAppDelegate.h */,
@@ -253,6 +249,8 @@
 				1CCAA36E1AED7ED10099516F /* SMMWKServicesInterfaceController.m */,
 				1C1A92751AF633BB00AB127C /* SMMWKServiceInterfaceController.h */,
 				1C1A92761AF633BB00AB127C /* SMMWKServiceInterfaceController.m */,
+				1CE3EEBA1AF688EC00254240 /* SMMWatchKitRequest.h */,
+				1CE3EEBB1AF688EC00254240 /* SMMWatchKitRequest.m */,
 				1CCAA3701AED7ED10099516F /* NotificationController.h */,
 				1CCAA3711AED7ED10099516F /* NotificationController.m */,
 				1CCAA3731AED7ED10099516F /* Images.xcassets */,
@@ -295,12 +293,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C80F4471AF4240700FC5E45 /* SMMBonjourHelperChannel.h in Headers */,
 				1C80F4141AF3FEE800FC5E45 /* ShutdownMyMacShared.h in Headers */,
-				1C80F4491AF4240700FC5E45 /* SMMShutdownService.h in Headers */,
-				1C80F4351AF3FFB200FC5E45 /* SMMClientServiceManager.h in Headers */,
-				1CE3EEB71AF682EF00254240 /* SMMWatchkitRequestHandler.h in Headers */,
-				1C80F4311AF3FF3C00FC5E45 /* SMMWatchKitRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,11 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CE3EEB81AF682EF00254240 /* SMMWatchkitRequestHandler.m in Sources */,
-				1C80F4361AF3FFB200FC5E45 /* SMMClientServiceManager.m in Sources */,
-				1C80F44A1AF4240700FC5E45 /* SMMShutdownService.m in Sources */,
-				1C80F4321AF3FF3C00FC5E45 /* SMMWatchKitRequest.m in Sources */,
-				1C80F4481AF4240700FC5E45 /* SMMBonjourHelperChannel.m in Sources */,
+				1CE3EEC11AF6894800254240 /* SMMWatchkitRequestsDefines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,10 +468,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5A22511AA4E29C001CE2F4 /* SMMCServiceViewController.m in Sources */,
+				1CE3EEBF1AF688FA00254240 /* SMMWatchkitRequestHandler.m in Sources */,
 				1C9AE2E81AE3B46A00BC7914 /* UIViewController+Orientations.m in Sources */,
+				1CE3EECA1AF689DB00254240 /* SMMShutdownService.m in Sources */,
 				1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */,
+				1CE3EEC91AF689DB00254240 /* SMMClientServiceManager.m in Sources */,
 				1CC766E71AA32CD700BF3D63 /* SMMAppDelegate.m in Sources */,
 				1CC766E41AA32CD700BF3D63 /* main.m in Sources */,
+				1CE3EEC81AF689DB00254240 /* SMMBonjourHelperChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE3EEBC1AF688EC00254240 /* SMMWatchKitRequest.m in Sources */,
 				1CCAA3721AED7ED10099516F /* NotificationController.m in Sources */,
 				1C1A92771AF633BB00AB127C /* SMMWKServiceInterfaceController.m in Sources */,
 				1CCAA36F1AED7ED10099516F /* SMMWKServicesInterfaceController.m in Sources */,

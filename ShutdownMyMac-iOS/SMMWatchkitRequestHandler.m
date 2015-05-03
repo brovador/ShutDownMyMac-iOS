@@ -7,7 +7,6 @@
 //
 
 #import "SMMWatchkitRequestHandler.h"
-#import "SMMWatchKitRequest.h"
 #import "SMMWatchkitRequestsDefines.h"
 #import "SMMShutdownService.h"
 #import "SMMClientServiceManager.h"

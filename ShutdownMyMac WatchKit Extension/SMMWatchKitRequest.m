@@ -7,16 +7,8 @@
 //
 #import <WatchKit/WatchKit.h>
 
-#import "SMMClientServiceManager.h"
-#import "SMMShutdownService.h"
 #import "SMMWatchkitRequestsDefines.h"
 #import "SMMWatchKitRequest.h"
-
-NSString *const SMMWatchkitRequestTypeKey = @"request";
-NSString *const SMMWatchkitRequestDeviceNameKey = @"device";
-
-NSString *const SMMWatchkitReplyDevicesKey = @"devices";
-NSString *const SMMWatchkitReplyErrorKey = @"error";
 
 @interface SMMWatchKitRequest ()
 
