@@ -5,15 +5,30 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Devices Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller id="AgC-eL-Hgc" customClass="SMMWKDevicesInterfaceController">
                     <items>
-                        <label width="136" alignment="left" text="Hello world" textAlignment="center" id="jj9-0A-ohi"/>
+                        <label width="136" alignment="left" text="lbTitle" textAlignment="center" id="jj9-0A-ohi"/>
+                        <table alignment="left" id="Sxz-LO-Wu7">
+                            <items>
+                                <tableRow identifier="DeviceRow" id="TxC-XY-uBW" customClass="SMMWKDeviceRow">
+                                    <group key="rootItem" width="1" alignment="left" id="dEX-Xq-upA">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Label" id="6by-fF-HIq"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="lbTitle" destination="6by-fF-HIq" id="cSg-cz-hXZ"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
-                        <outlet property="lbTest" destination="jj9-0A-ohi" id="ROp-pE-ghz"/>
+                        <outlet property="lbTitle" destination="jj9-0A-ohi" id="24N-KP-sYe"/>
+                        <outlet property="tblDevices" destination="Sxz-LO-Wu7" id="wyF-Iq-l3r"/>
                     </connections>
                 </controller>
             </objects>

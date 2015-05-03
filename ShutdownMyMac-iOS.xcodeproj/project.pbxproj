@@ -27,7 +27,7 @@
 		1CC766EA1AA32CD700BF3D63 /* SMMCServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC766E91AA32CD700BF3D63 /* SMMCServicesViewController.m */; };
 		1CC766ED1AA32CD700BF3D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EB1AA32CD700BF3D63 /* Main.storyboard */; };
 		1CC766EF1AA32CD700BF3D63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC766EE1AA32CD700BF3D63 /* Images.xcassets */; };
-		1CCAA36F1AED7ED10099516F /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAA36E1AED7ED10099516F /* InterfaceController.m */; };
+		1CCAA36F1AED7ED10099516F /* SMMWKDevicesInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAA36E1AED7ED10099516F /* SMMWKDevicesInterfaceController.m */; };
 		1CCAA3721AED7ED10099516F /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAA3711AED7ED10099516F /* NotificationController.m */; };
 		1CCAA3741AED7ED10099516F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCAA3731AED7ED10099516F /* Images.xcassets */; };
 		1CCAA3781AED7ED10099516F /* ShutdownMyMac WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 1CCAA3771AED7ED10099516F /* ShutdownMyMac WatchKit App.app */; };
@@ -114,8 +114,8 @@
 		1CCAA3681AED7ED10099516F /* ShutdownMyMac WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ShutdownMyMac WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCAA36B1AED7ED10099516F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CCAA36C1AED7ED10099516F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		1CCAA36D1AED7ED10099516F /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		1CCAA36E1AED7ED10099516F /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		1CCAA36D1AED7ED10099516F /* SMMWKDevicesInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMWKDevicesInterfaceController.h; sourceTree = "<group>"; };
+		1CCAA36E1AED7ED10099516F /* SMMWKDevicesInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMMWKDevicesInterfaceController.m; sourceTree = "<group>"; };
 		1CCAA3701AED7ED10099516F /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
 		1CCAA3711AED7ED10099516F /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		1CCAA3731AED7ED10099516F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 		1CCAA3691AED7ED10099516F /* ShutdownMyMac WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1CCAA36D1AED7ED10099516F /* InterfaceController.h */,
-				1CCAA36E1AED7ED10099516F /* InterfaceController.m */,
+				1CCAA36D1AED7ED10099516F /* SMMWKDevicesInterfaceController.h */,
+				1CCAA36E1AED7ED10099516F /* SMMWKDevicesInterfaceController.m */,
 				1CCAA3701AED7ED10099516F /* NotificationController.h */,
 				1CCAA3711AED7ED10099516F /* NotificationController.m */,
 				1CCAA3731AED7ED10099516F /* Images.xcassets */,
@@ -476,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCAA3721AED7ED10099516F /* NotificationController.m in Sources */,
-				1CCAA36F1AED7ED10099516F /* InterfaceController.m in Sources */,
+				1CCAA36F1AED7ED10099516F /* SMMWKDevicesInterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +753,7 @@
 				1C80F4291AF3FEE900FC5E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CC766D91AA32CD700BF3D63 /* Build configuration list for PBXProject "ShutdownMyMac-iOS" */ = {
 			isa = XCConfigurationList;
