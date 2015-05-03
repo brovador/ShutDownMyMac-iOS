@@ -6,12 +6,14 @@
 //  Copyright (c) 2015 Jesús. All rights reserved.
 //
 
-#import "SMMWKDevicesInterfaceController.h"
+#import "SMMWKServicesInterfaceController.h"
 #import "SMMWatchKitRequestsManager.h"
+
+#define MAX_DEVICES_TO_SHOW 20
 
 static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 
-@interface SMMWKDeviceRow : WKInterfaceButton
+@interface SMMWKDeviceRow : NSObject
 
 @property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbTitle;
 
@@ -21,7 +23,7 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 
 @end
 
-@interface SMMWKDevicesInterfaceController()
+@interface SMMWKServicesInterfaceController()
 
 @property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbTitle;
 @property (nonatomic, assign) IBOutlet WKInterfaceTable *tblDevices;
@@ -29,13 +31,13 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 @end
 
 
-@implementation SMMWKDevicesInterfaceController
+@implementation SMMWKServicesInterfaceController
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     [self _localizeView];
     
-    __block SMMWKDevicesInterfaceController *weakSelf = self;
+    __block SMMWKServicesInterfaceController *weakSelf = self;
     [[SMMWatchKitRequestsManager sharedManager] requestListDevices:^(NSArray *devices, NSError *error) {
         if (!error) {
             [weakSelf _updateDevicesTable:devices];
@@ -52,6 +54,12 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
     [super didDeactivate];
 }
 
+#pragma mark WKInterfaceTable handlers
+
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
+{
+    NSLog(@"SELECTED ELEMENT: %ld", rowIndex);
+}
 
 #pragma mark Private
 
@@ -63,8 +71,13 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 
 - (void)_updateDevicesTable:(NSArray*)devices
 {
-    [_tblDevices setNumberOfRows:[devices count] withRowType:SMMWKDeviceRowType];
-    for (int i = 0; i < [devices count]; i++) {
+    //Apple recommends to show less than 20 rows in tables
+    //we limit the results to the first 20.
+    //TODO: show a "more" button at the end to continue showing devices
+    NSInteger devicesToDisplay = MIN([devices count], MAX_DEVICES_TO_SHOW);
+    [_tblDevices setNumberOfRows:devicesToDisplay withRowType:SMMWKDeviceRowType];
+    
+    for (int i = 0; i < devicesToDisplay; i++) {
         NSString *deviceName = devices[i];
         SMMWKDeviceRow *deviceRow = [_tblDevices rowControllerAtIndex:i];
         [deviceRow.lbTitle setText:deviceName];

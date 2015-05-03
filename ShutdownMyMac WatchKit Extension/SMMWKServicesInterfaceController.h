@@ -9,6 +9,6 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 
-@interface SMMWKDevicesInterfaceController : WKInterfaceController
+@interface SMMWKServicesInterfaceController : WKInterfaceController
 
 @end
