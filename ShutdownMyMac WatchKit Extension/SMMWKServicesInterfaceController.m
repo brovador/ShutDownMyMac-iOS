@@ -11,6 +11,7 @@
 
 #define MAX_DEVICES_TO_SHOW 20
 
+static NSString * const SMMWKServiceSegue = @"ServiceSegue";
 static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 
 @interface SMMWKDeviceRow : NSObject
@@ -24,6 +25,8 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 @end
 
 @interface SMMWKServicesInterfaceController()
+
+@property (nonatomic, strong) NSArray *devices;
 
 @property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbTitle;
 @property (nonatomic, assign) IBOutlet WKInterfaceTable *tblDevices;
@@ -54,16 +57,29 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
     [super didDeactivate];
 }
 
+#pragma mark Segues
+
+- (id)contextForSegueWithIdentifier:(NSString *)segueIdentifier inTable:(WKInterfaceTable *)table rowIndex:(NSInteger)rowIndex
+{
+    id result = nil;
+    if ([SMMWKServiceSegue isEqualToString:segueIdentifier]) {
+        result = [_devices objectAtIndex:rowIndex];
+    }
+    return result;
+}
+
 #pragma mark Private
 
 - (void)_localizeView
 {
-    [_lbTitle setText:NSLocalizedString(@"DEVICES_LIST", @"")];
+    [_lbTitle setText:NSLocalizedString(@"WK_DEVICES_LIST", @"")];
 }
 
 
 - (void)_updateDevicesTable:(NSArray*)devices
 {
+    self.devices = devices;
+    
     //Apple recommends to show less than 20 rows in tables
     //we limit the results to the first 20.
     //TODO: show a "more" button at the end to continue showing devices

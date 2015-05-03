@@ -21,7 +21,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="lbTitle" destination="6by-fF-HIq" id="cSg-cz-hXZ"/>
-                                        <segue destination="yeS-8h-5z2" kind="modal" id="brL-pM-Ros"/>
+                                        <segue destination="yeS-8h-5z2" kind="modal" identifier="ServiceSegue" id="brL-pM-Ros"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -35,12 +35,17 @@
             </objects>
             <point key="canvasLocation" x="59" y="297"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Service Interface Controller-->
         <scene sceneID="1cJ-JI-oxX">
             <objects>
-                <controller id="yeS-8h-5z2"/>
+                <controller id="yeS-8h-5z2" customClass="SMMWKServiceInterfaceController">
+                    <items>
+                        <label width="1" alignment="left" text="lbDeviceName" textAlignment="center" id="a2u-E6-GCL"/>
+                        <button width="1" alignment="left" title="Shutdown" id="YQI-rf-7RP"/>
+                    </items>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="301" y="297"/>
+            <point key="canvasLocation" x="321" y="297"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

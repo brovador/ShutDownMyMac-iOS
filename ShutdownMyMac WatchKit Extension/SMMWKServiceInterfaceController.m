@@ -11,35 +11,63 @@
 
 @interface SMMWKServiceInterfaceController ()
 
+@property (nonatomic, copy) NSString *deviceName;
+
+@property (nonatomic, assign) WKInterfaceLabel *lbDeviceName;
+@property (nonatomic, assign) WKInterfaceButton *btnShutdown;
+
 @end
 
 @implementation SMMWKServiceInterfaceController
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    self.deviceName = context;
+    
+    [_btnShutdown setEnabled:NO];
+    [_lbDeviceName setText:_deviceName];
 }
 
 - (void)willActivate {
     [super willActivate];
     
-    
+    __block SMMWKServiceInterfaceController *weakSelf = self;
+    [[SMMWatchKitRequestsManager sharedManager] requestConnectDevice:_deviceName onComplete:^(NSError *error) {
+        if (error) {
+            [weakSelf popController];
+        } else {
+            [_btnShutdown setEnabled:YES];
+        }
+    }];
 }
+
 
 - (void)didDeactivate {
     [super didDeactivate];
+}
+
+#pragma mark IBActions
+
+- (IBAction)shutdownAction
+{
+    [_btnShutdown setEnabled:NO];
+    
+    __block SMMWKServiceInterfaceController *weakSelf = self;
+    [[SMMWatchKitRequestsManager sharedManager] requestShutdownDevice:_deviceName onComplete:^(NSError *error) {
+        if (error) {
+            //TODO: handle error...
+            [_btnShutdown setEnabled:YES];
+        } else {
+            [weakSelf popController];
+        }
+    }];
 }
 
 #pragma mark Private
 
 - (void)_localizeView
 {
-    
-}
-
-
-- (void)_updateView
-{
-    
+    [_btnShutdown setTitle:NSLocalizedString(@"WK_SHUTDOWN_BUTTON", @"")];
 }
 
 @end
