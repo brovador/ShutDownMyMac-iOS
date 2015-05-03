@@ -54,13 +54,6 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
     [super didDeactivate];
 }
 
-#pragma mark WKInterfaceTable handlers
-
-- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
-{
-    NSLog(@"SELECTED ELEMENT: %ld", rowIndex);
-}
-
 #pragma mark Private
 
 - (void)_localizeView

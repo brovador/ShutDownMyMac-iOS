@@ -21,6 +21,7 @@
                                     </group>
                                     <connections>
                                         <outlet property="lbTitle" destination="6by-fF-HIq" id="cSg-cz-hXZ"/>
+                                        <segue destination="yeS-8h-5z2" kind="modal" id="brL-pM-Ros"/>
                                     </connections>
                                 </tableRow>
                             </items>
