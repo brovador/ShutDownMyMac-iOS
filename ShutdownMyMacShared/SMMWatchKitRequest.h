@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SMMWatchKitRequestsManager : NSObject
-
-+ (instancetype)sharedManager;
+@interface SMMWatchKitRequest : NSObject
 
 - (void)requestListDevices:(void(^)(NSArray * devices, NSError *error))onComplete;
 - (void)requestConnectDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
 - (void)requestShutdownDevice:(NSString*)deviceName onComplete:(void(^)(NSError *error))onComplete;
-
-- (void)handleWatchkitRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *info))reply;
 
 @end

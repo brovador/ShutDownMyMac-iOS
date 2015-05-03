@@ -7,9 +7,11 @@
 //
 
 #import "SMMAppDelegate.h"
-#import "SMMWatchKitRequestsManager.h"
+#import "SMMWatchkitRequestHandler.h"
 
 @interface SMMAppDelegate ()
+
+@property (nonatomic, strong) SMMWatchkitRequestHandler *watchkitRequestsHandler;
 
 @end
 
@@ -22,7 +24,11 @@
 
 - (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
-    [[SMMWatchKitRequestsManager sharedManager] handleWatchkitRequest:userInfo reply:reply];
+    if (_watchkitRequestsHandler == nil) {
+        _watchkitRequestsHandler = [SMMWatchkitRequestHandler new];
+    }
+    
+    [_watchkitRequestsHandler handleWatchkitRequest:userInfo reply:reply];
 }
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import "SMMWKServiceInterfaceController.h"
-#import "SMMWatchKitRequestsManager.h"
+#import "SMMWatchKitRequest.h"
 
 @interface SMMWKServiceInterfaceController ()
 
 @property (nonatomic, copy) NSString *deviceName;
+@property (nonatomic, strong) SMMWatchKitRequest *watchkitRequester;
 
 @property (nonatomic, assign) IBOutlet WKInterfaceLabel *lbDeviceName;
 @property (nonatomic, assign) IBOutlet WKInterfaceButton *btnShutdown;
@@ -23,6 +24,7 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     self.deviceName = context;
+    self.watchkitRequester = [SMMWatchKitRequest new];
     
     [_btnShutdown setEnabled:NO];
     [_lbDeviceName setText:_deviceName];
@@ -32,7 +34,8 @@
     [super willActivate];
     
     __block SMMWKServiceInterfaceController *weakSelf = self;
-    [[SMMWatchKitRequestsManager sharedManager] requestConnectDevice:_deviceName onComplete:^(NSError *error) {
+    
+    [_watchkitRequester requestConnectDevice:_deviceName onComplete:^(NSError *error) {
         if (error) {
             [weakSelf dismissController];
         } else {
@@ -53,7 +56,7 @@
     [_btnShutdown setEnabled:NO];
     
     __block SMMWKServiceInterfaceController *weakSelf = self;
-    [[SMMWatchKitRequestsManager sharedManager] requestShutdownDevice:_deviceName onComplete:^(NSError *error) {
+    [_watchkitRequester requestShutdownDevice:_deviceName onComplete:^(NSError *error) {
         if (error) {
             //TODO: handle error...
             [_btnShutdown setEnabled:YES];

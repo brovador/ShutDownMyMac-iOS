@@ -7,7 +7,7 @@
 //
 
 #import "SMMWKServicesInterfaceController.h"
-#import "SMMWatchKitRequestsManager.h"
+#import "SMMWatchKitRequest.h"
 
 #define MAX_DEVICES_TO_SHOW 20
 
@@ -41,7 +41,8 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
     [self _localizeView];
     
     __block SMMWKServicesInterfaceController *weakSelf = self;
-    [[SMMWatchKitRequestsManager sharedManager] requestListDevices:^(NSArray *devices, NSError *error) {
+    SMMWatchKitRequest *watchkitRequest = [SMMWatchKitRequest new];
+    [watchkitRequest requestListDevices:^(NSArray *devices, NSError *error) {
         if (!error) {
             [weakSelf _updateDevicesTable:devices];
         }
