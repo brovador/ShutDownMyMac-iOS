@@ -39,6 +39,10 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     [self _localizeView];
+}
+
+- (void)willActivate {
+    [super willActivate];
     
     __block SMMWKServicesInterfaceController *weakSelf = self;
     SMMWatchKitRequest *watchkitRequest = [SMMWatchKitRequest new];
@@ -48,11 +52,6 @@ static NSString * const SMMWKDeviceRowType = @"DeviceRow";
             [weakSelf _updateDevicesTable:devices];
         }
     }];
-}
-
-- (void)willActivate {
-    [super willActivate];
-    
 }
 
 - (void)didDeactivate {
