@@ -4,5 +4,5 @@ iOS app to shut down OSX remotely using Bonjour communication. Devices need to b
 The Shutdown OSX app is also needed. Get it [here](https://github.com/brovador/ShutDownMyMac-OSX) 
 
 
-# Licencse
+# License
 MIT
